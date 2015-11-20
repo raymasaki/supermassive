@@ -13,7 +13,8 @@ app.listen(3000, function() {
 });
 
 app.get('/search/:search_term', function(req, res) {
-  request('http://api.giphy.com/v1/gifs/search?q=' + encodeURI(req.params.search_term) + '&api_key=dc6zaTOxFJmzC&limit=5', function(error, response, body) {
+  //request('http://api.giphy.com/v1/gifs/search?q=' + encodeURI(req.params.search_term) + '&api_key=dc6zaTOxFJmzC&limit=5', function(error, response, body) {
+  request('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + encodeURI(req.params.search_term), function(error, response, body) {
     res.send(body);
   });
 });

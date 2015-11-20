@@ -35,24 +35,24 @@ var randomGifSearch = function() {
 var renderRandom = function (data) {
 	var gif = JSON.parse(data);
 	$('#gif-container').empty();
-	var gifDiv = $('<div>').addClass("gif")
+	var gifDiv = $('<div>').addClass("gif");
 	var img = $('<img width="500">').attr('src', gif.data.image_original_url);
-	gifDiv.append(img)
+	gifDiv.append(img);
   $('#gif-container').append(gifDiv);
   window.setTimeout(randomGifSearch, 3000);
 };
 
 var renderSingle = function(data) {
-  $('#gif-container').empty();
-  var gif = JSON.parse(data)
-  var gifDiv = $('<div>').addClass("gif")
+  var gif = JSON.parse(data);
+	$('#gif-container').empty();
+  var gifDiv = $('<div>').addClass("gif");
   var img = $('<img width="500">').attr('src', gif.data.image_original_url);
-  gifDiv.append(img)
+  gifDiv.append(img);
   $('#gif-container').append(gifDiv);
-
+	window.setTimeout(search, 3000);
 };
 
-var render = function (data) {
+/* var render = function (data) {
 	var response = JSON.parse(data);
 	$('#gif-container').empty()
 	var results = response.data;
@@ -74,4 +74,4 @@ var render = function (data) {
 		gifDiv.append(img).append(startButton).append(stopButton);
 		$('#gif-container').append(gifDiv);
 	}
-};
+};*/
