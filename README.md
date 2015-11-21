@@ -36,6 +36,7 @@
   - As a GUEST: I want to VIEW a Youtube post
   - As a GUEST: I want to VIEW an image post
   - As a GUEST: I want to VIEW a tweet post
+  
 - **Member**
   - As a MEMBER: I want to LOG OUT
   - As a MEMBER: I want to DELETE my account
@@ -55,3 +56,14 @@
   - As a MEMBER: I want to VIEW a Youtube post
   - As a MEMBER: I want to VIEW an image post
   - As a MEMBER: I want to VIEW a tweet post
+
+### Wireframes
+
+![Home](http://i.imgur.com/48k2f5W.png "Super Massive Home")
+![Search](http://i.imgur.com/b9GDFMa.png "Super Massive Search")
+![Loading](http://i.imgur.com/X8WwdLs.png "Super Massive Loading")
+![Post](http://i.imgur.com/poNGBV5.png "Super Massive Post")
+![Trending](http://i.imgur.com/2cCJPx6.png "Super Massive Trending")
+![Log In](http://i.imgur.com/FGnperp.png "Super Massive Log In")
+![Sign Up](http://i.imgur.com/IClYYMY.png "Super Massive Sign Up")
+![Profile](http://i.imgur.com/ABK4prY.png "Super Massive Profile")
