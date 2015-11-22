@@ -21,9 +21,9 @@ $(document).ready(function() {
       console.log('added count');
     });
 
-    // $.post('/trending', {word: $searchterm, count: 1}, function (data, status) {
-    //   console.log($searchterm + ' added to database');
-    // });
+    $.post('/trending', {word: $searchterm, count: 1}, function (data, status) {
+      console.log($searchterm + ' added to database');
+    });
 
 
     // Clears search field

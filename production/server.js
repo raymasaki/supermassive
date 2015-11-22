@@ -26,6 +26,8 @@ require('./config/passport')(passport);
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser());
+
+// use static files
 app.use(express.static(__dirname + '/public'));
 
 // ejs templating
@@ -40,7 +42,7 @@ app.use(flash());
 // bower components
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
-// user controllers
+// controllers
 fs.readdirSync('./app/controllers').forEach(function (file) {
   if(file.substr(-3) == '.js') {
       route = require('./app/controllers/' + file);
