@@ -11,8 +11,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var request      = require('request');
+var fs           = require('fs');
 
-var configDB = require('./config/database.js');
+// var configDB = require('./config/database.js');
 
 
 // CONFIG =========================================================================
@@ -23,23 +24,31 @@ var configDB = require('./config/database.js');
 
 // set up our express application
 app.use(morgan('dev'));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(bodyParser());
 app.use(express.static('public'));
 
 // required for passport
-app.use(session({ secret: 'secret' }));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
+// app.use(session({ secret: 'secret' }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(flash());
 
 // bower components
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
+// user controllers
+fs.readdirSync('./app/controllers').forEach(function (file) {
+  if(file.substr(-3) == '.js') {
+      route = require('./app/controllers/' + file);
+      route.controller(app);
+  }
+});
+
 
 // ROUTES ======================================================================
 
-require('./app/routes/routes.js')(app); // (app, passport); // load our routes and pass in our app and fully configured passport
+// require('./app/routes/routes.js')(app); // (app, passport); // load our routes and pass in our app and fully configured passport
 
 
 // LAUNCH ======================================================================
