@@ -7,56 +7,26 @@ var mongoose = require('mongoose'),
 module.exports.controller = function(app) {
 
 
-  // TWEET RANDOM =========================================================================
+// TUMBLR RANDOM =========================================================================
 
-  app.get('/tweets/random', function(req, res) {
+  app.get('/texts/random', function(req, res) {
 
-    // instantiate twitter
-    twitter = new twit({
-      consumer_key: process.env.TWITTER_CONSUMER_KEY,
-      consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-      access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-      access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-    });
+    var randomTags = ['text', 'ask', 'quotes', 'words', 'sayings', 'anonymous', 'quote', 'phrase', 'writing', 'anon', 'advice'];
+    var tag = randomTags[Math.floor(Math.random() * randomTags.length)];
 
-    twitter.stream('statuses/sample', function(stream) {
-
-      stream.on("data", function(data) {
-
-        res.send(data);
-
-        stream.destroy();
-      });
+    request('http://api.tumblr.com/v2/tagged?tag=' + tag + '&api_key=' + encodeURI(process.env.TUMBLR_CONSUMER_KEY) + '&limit=20', function(error, response, body) {
+    	res.send(body);
     });
 
   });
 
 
-  // TWEET SEARCH  =========================================================================
+// TUMBLR SEARCH =========================================================================
 
-  app.get('/tweets/:search_term', function(req, res) {
+  app.get('/texts/:search_term', function(req, res) {
 
-    // instantiate twitter
-    twitter = new twit({
-      consumer_key: process.env.TWITTER_CONSUMER_KEY,
-      consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-      access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-      access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-    });
-
-    twitter.stream('statuses/filter', {
-
-      track: req.params.search_term
-
-    }, function(stream) {
-
-      stream.on("data", function(data) {
-
-        res.send(data);
-
-        stream.destroy();
-      });
-
+    request('http://api.tumblr.com/v2/tagged?tag=' + encodeURI(req.params.search_term) + '&api_key=' + encodeURI(process.env.TUMBLR_CONSUMER_KEY) + '&limit=20', function(error, response, body) {
+    	res.send(body);
     });
 
   });
