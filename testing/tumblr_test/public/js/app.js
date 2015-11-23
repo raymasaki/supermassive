@@ -73,7 +73,8 @@ var render = function (data) {
 
   // var gif = JSON.parse(data);
 	$('#gif-container').empty();
-  var tumblr_url = data.response[0].post_url;
+	var randomize = Math.floor(Math.random() * 20)
+  var tumblr_url = data.response[randomize].post_url;
 
   var $container = $('#gif-container');
 
