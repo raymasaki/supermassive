@@ -1,7 +1,10 @@
+var mongoose     = require('mongoose');
+var relationship = require("mongoose-relationship");
 var LocalStrategy   = require('passport-local').Strategy;
 
 // load up the user model
 var User            = require('../app/models/user');
+var Favorite            = require('../app/models/favorite');
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
@@ -42,25 +45,26 @@ module.exports = function(passport) {
         // User.findOne wont fire unless data is sent back
         process.nextTick(function() {
 
-        // find a user whose email is the same as the forms email
+        // find a user whose username is the same as the forms username
         // we are checking to see if the user trying to login already exists
         User.findOne({ 'local.username' :  username }, function(err, user) {
             // if there are any errors, return the error
             if (err)
                 return done(err);
 
-            // check to see if theres already a user with that email
+            // check to see if theres already a user with that username
             if (user) {
-                return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
             } else {
 
-                // if there is no user with that email
+                // if there is no user with that username
                 // create the user
                 var newUser            = new User();
 
                 // set the user's local credentials
                 newUser.local.username    = username;
-                newUser.local.password = newUser.generateHash(password);
+                newUser.local.password    = newUser.generateHash(password);
+                newUser.favorites         = [{ type: mongoose.Schema.ObjectId, ref: 'Favorite' }];
 
                 // save the user
                 newUser.save(function(err) {
@@ -68,6 +72,11 @@ module.exports = function(passport) {
                         throw err;
                     return done(null, newUser);
                 });
+
+                var favorite = new Favorite({ user: newUser._id, title: "hello" });
+                var favorite2 = new Favorite({ user: newUser._id, title: "hello again" });
+                favorite.save();
+                favorite2.save();
             }
 
         });
@@ -83,7 +92,7 @@ module.exports = function(passport) {
     // by default, if there was no name, it would just be called 'local'
 
     passport.use('local-login', new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
+        // by default, local strategy uses username and password, we will override with username
         usernameField : 'username',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
