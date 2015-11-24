@@ -11,7 +11,7 @@ module.exports.controller = function (app) {
     var randomTags = ['iphone', 'iphoneography', 'instagramapp', 'square', 'squareformat', 'art', 'architecture', 'canon', 'nikon'];
     var tag = randomTags[Math.floor(Math.random() * randomTags.length)];
 
-    request('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=41fda80f95e103ff732e3b249cf96282&tags=' + tag + '&format=json&nojsoncallback=1&text=' + tag + '&extras=url_l',
+    request('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + encodeURI(process.env.FLICKR_CONSUMER_KEY) + '&tags=' + tag + '&format=json&nojsoncallback=1&text=' + tag + '&extras=url_l',
     	function(error, response, body) {
     	res.send(body);
     });
@@ -23,7 +23,7 @@ module.exports.controller = function (app) {
 
   app.get('/images/:search_term', function(req, res) {
 
-    request('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=41fda80f95e103ff732e3b249cf96282&tags=' + req.params.search_term + '&format=json&nojsoncallback=1&text=' + req.params.search_term + '&extras=url_l', function(error, response, body) {
+    request('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + encodeURI(process.env.FLICKR_CONSUMER_KEY) + '&tags=' + req.params.search_term + '&format=json&nojsoncallback=1&text=' + req.params.search_term + '&extras=url_l', function(error, response, body) {
       res.send(body);
     });
 
