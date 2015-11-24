@@ -24,7 +24,7 @@ app.get('/search/:search_term', function(req, res) {
 
 
 app.get('/kittens', function(req, res) {
-  request('http://api.tumblr.com/v2/tagged?tag=kittens&api_key='+encodeURI(process.env.{{TUMBLR_CONSUMER_KEY}})+'&limit=1',
+  request('http://api.tumblr.com/v2/tagged?tag=kittens&api_key=bhFzZZxxHsx7WOdVw9v2Ysc99PwlEFKPfEUnudbtJh0xvLGnN9&limit=20','http://api.tumblr.com/v2/tagged?tag=kittens&api_key=bhFzZZxxHsx7WOdVw9v2Ysc99PwlEFKPfEUnudbtJh0xvLGnN9&limit=20'
   	function(error, response, body) {
   	res.send(body)
   });
