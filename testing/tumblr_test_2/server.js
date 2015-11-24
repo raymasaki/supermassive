@@ -1,15 +1,20 @@
-var mongoose = require('mongoose'),
-  request = require('request'),
-  twit = require('twitter'),
-  util = require('util'),
-  bodyParser = require('body-parser');
+var express = require('express'),
+    logger = require('morgan'),
+    request = require('request'),
+    bodyParser = require('body-parser'),
+    app = express();
 
-module.exports.controller = function(app) {
+app.use(logger('dev'));
+app.use(express.static('public'));
+app.use(bodyParser.json());
 
+app.listen(3000, function() {
+  console.log('App is running on port 3000');
+});
 
 // TUMBLR RANDOM =========================================================================
 
-  app.get('/texts/random', function(req, res) {
+  app.get('/posts/random', function(req, res) {
 
     var randomTags = ['text', 'ask', 'quotes', 'words', 'sayings', 'anonymous', 'quote', 'phrase', 'writing', 'anon', 'advice'];
     var tag = randomTags[Math.floor(Math.random() * randomTags.length)];
@@ -23,12 +28,10 @@ module.exports.controller = function(app) {
 
 // TUMBLR SEARCH =========================================================================
 
-  app.get('/texts/:search_term', function(req, res) {
+  app.get('/posts/:search_term', function(req, res) {
 
     request('http://api.tumblr.com/v2/tagged?tag=' + encodeURI(req.params.search_term) + '&api_key=' + encodeURI(process.env.TUMBLR_CONSUMER_KEY) + '&limit=20', function(error, response, body) {
     	res.send(body);
     });
 
   });
-
-};
