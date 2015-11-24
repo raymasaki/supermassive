@@ -35,7 +35,7 @@ app.get('/twitter/', function(req, res) {
       res.send(data);
 
       stream.destroy();
-      process.exit(0);
+      // process.exit(0);
     });
 
   });
