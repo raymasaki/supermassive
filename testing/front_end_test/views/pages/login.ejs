@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  
+
   <% include ../partials/border %>
 
   <header>
@@ -17,42 +17,15 @@
   <div class="container">
 
 
-    <div id="logo_login">
+    <div class="logo-login">
 
       <% include ../partials/logo %>
 
     </div>
+    <br />
 
-    <h1>Login</h1>
+      <% include ../partials/login %>
 
-    <!-- show any messages that come back with authentication -->
-    <% if (message.length > 0) { %>
-      <div class="alert alert-danger">
-        <%= message %>
-      </div>
-    <% } %>
-
-    <!-- LOGIN FORM -->
-    <div class ="login_div">
-    <form action="/login" method="post">
-
-      <div class="form-group">
-        <label id="username">Username</label> <br />
-        <input type="text" class="form-control" name="username">
-      </div>
-      <br />
-      <div class="form-group">
-        <label id="password">Password</label> <br />
-        <input type="password" class="form-control" name="password">
-      </div>
-
-      <button type="submit" class="btn btn-warning btn-lg">Login</button>
-    </form>
-
-    <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
-
-    </div>
   </div>
 </body>
 

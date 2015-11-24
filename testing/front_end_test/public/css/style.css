@@ -29,13 +29,13 @@ nav > ul {
   width: 225px;
   height: 135px;
   margin-left: 45%;
-  margin-top: 80px;
-  background-color: black;
+  margin-top: 9%;
 }
-#logo_login {
+
+.logo-login {
   margin-left: 50%;
-  margin-top: 10%;
-  background-color: black;
+  margin-top: 5%;
+  margin-bottom: 2%;
 }
 
 /*********************    HOME     *********************/
@@ -67,16 +67,13 @@ nav > ul {
 /* Span that acts as link to random search ------*/
 
 #random {
-  color: grey;
+  color: #807F7E;
   font-size: 20px;
   text-align: center;
   margin-left: 30%;
 }
-#random_div {
-  margin-left: 100px;
-  height: 10px;
-  width: 30px;
-}
+
+
 
 /*********************    SIGNUP     *********************/
 
@@ -84,7 +81,7 @@ nav > ul {
 /* CSS to style form for signup page -------------------------- */
 
 .signup_form_div {
-  margin-left: 100px;
+  margin-left: 35%;
   background-color: black;
 }
 .form-control {
@@ -93,14 +90,14 @@ nav > ul {
   height: 40px;
   width: 430px;
   color: white;
-  margin-top: 15px;
+  margin-top: 5%;
 }
 
 /* Adds effect of form div turning yellow on click ------------- */
 
 .form-control:focus {
   outline: none !important;
-  border: 5px solid yellow;
+  border: 5px solid #EFFB4F;
   box-shadow: 0 0 10px #719ECE;
 }
 
@@ -110,13 +107,13 @@ nav > ul {
 /* CSS for login page -------------------------------------------*/
 
 .login_div {
-  margin-left: 300px;
+  margin-left: 37%;
 }
 #username {
-  color: grey;
+  color: #807F7E;
 }
 #password {
-  color: grey;
+  color: #807F7E;
 }
 
 /* CSS for trending partial div ----------------------------------*/
