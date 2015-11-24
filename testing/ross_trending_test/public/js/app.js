@@ -13,12 +13,11 @@ $(document).ready(function() {
     words.forEach(function (word) {
       if ($searchterm == word.word) {
         console.log('found');
-        match = true
-      } else {
-        console.log('added');
+        match = true;
       }
     });
-    if (match = true) {
+
+    if (match == true) {
       $.get('/count', function (data, status) {
         console.log('added count');
       });
@@ -30,6 +29,8 @@ $(document).ready(function() {
 
     // Clears search field
     $('#search-field').val('');
+    $.get('/trending', calculateTrends, 'json');
+    //$.get('/trending', renderTrendingSingle, 'json');
   });
 
 });
