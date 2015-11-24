@@ -66,18 +66,14 @@ var fetchImagesJson = function(data) {
 // =============================================================================
 
 
-var textsTimer = function() {
-  window.setTimeout(fetchTextsJson, 5000);
-};
-var videosTimer = function() {
-  window.setTimeout(fetchVideosJson, 5000);
-};
-var gifsTimer = function() {
-  window.setTimeout(fetchGifsJson, 5000);
-};
-var imagesTimer = function() {
-  window.setTimeout(fetchImagesJson, 5000);
-};
+var textsTimer;
+
+var videosTimer;
+
+var gifsTimer;
+
+var imagesTimer;
+
 
 var clearTimers = function() {
   window.clearTimeout(textsTimer);
@@ -111,7 +107,7 @@ var renderSingleText = function(data) {
   clearTimers();
 
   // sets new fetch
-  textsTimer();
+  textsTimer = window.setTimeout(fetchTextsJson, 5000);
 
 };
 
@@ -120,12 +116,19 @@ var renderSingleText = function(data) {
 var renderSingleVideo = function(data) {
 
   var $container = $('#results-container');
+  // debugger;
 
   var video_id = data.list[Math.floor(Math.random() * 100)].id;
 
   $container.empty();
 
-  $container.html('<iframe frameborder="0" width="100%" height="100%" src="//www.dailymotion.com/embed/video/' + video_id + '?autoplay=1" allowfullscreen></iframe>');
+  $container.html('<iframe frameborder="0" width="100%" height="100%" src="//www.dailymotion.com/embed/video/' + video_id + '?autoplay=1&chromeless=1" allowfullscreen></iframe>');
+
+  // clears all running timeouts
+  clearTimers();
+
+  // sets new fetch
+  videosTimer = window.setTimeout(fetchVideosJson, 10000);
 
 };
 
@@ -146,7 +149,7 @@ var renderSingleGif = function(data) {
   clearTimers();
 
   // sets new fetch
-  gifsTimer();
+  gifsTimer = window.setTimeout(fetchGifsJson, 5000);
 
 };
 
@@ -167,6 +170,6 @@ var renderSingleImage = function(data) {
   clearTimers();
 
   // sets new fetch
-  imagesTimer();
+  imagesTimer = window.setTimeout(fetchImagesJson, 5000);
 
 };
