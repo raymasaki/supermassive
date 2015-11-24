@@ -1,0 +1,65 @@
+body {
+  font-family: helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 20px;
+  height:100%;
+  width: 100%;
+  background-color: black;
+
+}
+#logo{
+width:325px;
+height: 135px;
+margin-left: 450px;
+margin-top: 80px;
+background-color: black;
+}
+#search_div{
+  padding-top: 70px;
+  padding-left: 295px;
+  padding-bottom: 40px;
+}
+#search_form{
+  width:630px;
+  height: 70px;
+  font-size: 30px;
+  text-align: center;
+  border:5px solid white;
+  background-color: black;
+  color:white;
+}
+#search_form:focus {
+    outline: none !important;
+    border:5px solid yellow;
+    box-shadow: 0 0 10px #719ECE;
+    color:white;
+}
+#random{
+  color:grey;
+  font-size: 20px;
+  text-align: center;
+  align-items: center;
+}
+.signup_form_div{
+
+  margin-left: 100px;
+  background-color: black;
+}
+.container{
+  background-color: black;
+  height: 80%;
+  width:80%;
+}
+.form-control{
+  border:5px solid white;
+  background-color: black;
+  height:40px;
+  width: 430px;
+  color:white;
+}
+.form-control:focus {
+    outline: none !important;
+    border:5px solid yellow;
+    box-shadow: 0 0 10px #719ECE;
+}
