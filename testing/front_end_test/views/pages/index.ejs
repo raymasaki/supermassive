@@ -7,41 +7,34 @@
 </head>
 
 <body>
-    <div id= "left_side">
 
-    </div>
+  <% include ../partials/border %>
 
-    <div id= "top">
+    <header>
+      <% include ../partials/header %>
+    </header>
 
-    </div>
-
-    <div id= "bottom">
-
-    </div>
-    <div id= "right_side">
-
-    </div>
-  <header>
-     <% include ../partials/header %>
-   </header>
-
-  <div class="container">
+    <div class="container">
       <div id=logo>
 
         <% include ../partials/logo_search %>
       </div>
 
-      <div id= "buttons">
+      <div id="buttons">
         <a href="/login" class="btn">Login</a>
         <a href="/signup" class="btn">Signup</a>
       </div>
 
+    </div>
 
-  </div>
-  <div id="search_div">
-    <% include ../partials/search %>
-    <span id="random">Show me anything<span>
-  </div>
+    <div id="search_div">
+      <% include ../partials/search %>
+        <div id="random_div">
+          <span id="random">Show me anything
+            <span>
+        </div>
+    </div>
+
 </body>
 
 </html>

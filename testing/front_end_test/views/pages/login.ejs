@@ -7,6 +7,8 @@
 </head>
 
 <body>
+  
+  <% include ../partials/border %>
 
   <header>
      <% include ../partials/header %>
@@ -14,7 +16,6 @@
 
   <div class="container">
 
-    <% include ../partials/border %>
 
     <div id="logo_login">
 
@@ -32,6 +33,7 @@
     <% } %>
 
     <!-- LOGIN FORM -->
+    <div class ="login_div">
     <form action="/login" method="post">
 
       <div class="form-group">
@@ -50,7 +52,7 @@
     <p>Need an account? <a href="/signup">Signup</a></p>
     <p>Or go <a href="/">home</a>.</p>
 
-
+    </div>
   </div>
 </body>
 
