@@ -1,3 +1,6 @@
+
+
+/* Elements that cover most of all of page ---------------- */
 body {
   font-family: helvetica, sans-serif;
   font-size: 16px;
@@ -8,13 +11,35 @@ body {
   background-color: black;
 
 }
+
+.container{
+  background-color: black;
+  height: 80%;
+  width:80%;
+}
+
+/* Editing the navbar of the header ---------------------- */
+
+.nav-navbar-nav{
+  display: inline-block;
+}
+/* CSS to style logo for landing page -------------------- */
 #logo{
-width:325px;
+width:225px;
 height: 135px;
 margin-left: 450px;
 margin-top: 80px;
 background-color: black;
 }
+
+#logo_login{
+  margin-left: 450px;
+  margin-top: 80px;
+  background-color: black;
+
+}
+
+/* CSS to style Search Div, search form ------------------*/
 #search_div{
   padding-top: 70px;
   padding-left: 295px;
@@ -35,31 +60,101 @@ background-color: black;
     box-shadow: 0 0 10px #719ECE;
     color:white;
 }
+/* Span that acts as link to random search ------*/
 #random{
   color:grey;
   font-size: 20px;
   text-align: center;
   align-items: center;
 }
+
+/* CSS to style form for signup page -------------------------- */
 .signup_form_div{
 
   margin-left: 100px;
   background-color: black;
 }
-.container{
-  background-color: black;
-  height: 80%;
-  width:80%;
-}
+
 .form-control{
   border:5px solid white;
   background-color: black;
   height:40px;
   width: 430px;
   color:white;
+  margin-top: 15px;
 }
+
+/* Adds effect of form div turning yellow on click ------------- */
 .form-control:focus {
     outline: none !important;
     border:5px solid yellow;
     box-shadow: 0 0 10px #719ECE;
+}
+
+/* CSS for login page -------------------------------------------*/
+#username{
+  color: grey;
+}
+
+#password{
+  color: grey;
+}
+
+/* CSS for trending partial div ----------------------------------*/
+#trending{
+  height:420px;
+  width: 630px;
+  border: 3px solid white;
+  background-color: black;
+  margin-left: 250px;
+  margin-right:250px;
+  margin-top: 50px;
+}
+h1{
+  color:white;
+  text-align: center;
+  font-size: 25px;
+  margin-left: 60px;
+
+}
+
+/* CSS for divs creating colored border -------------------------*/
+#left_side{
+  width:20px;
+  height:100%;
+  background-color: #00e5ff;
+  float:left;
+  position: fixed;
+  left:0;
+
+}
+
+#right_side{
+  background-color: #ff4081;
+  width: 20px;
+  height: 100%;
+  float: right;
+  right:0;
+  position: fixed;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+#top{
+  background-color: #00e676;
+  height: 20px;
+  width: 100%;
+  top:0;
+  position:fixed;
+  margin-left: -20px;
+
+}
+
+#bottom{
+  background-color: #7c4dff;
+  height:20px;
+  width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+
 }
