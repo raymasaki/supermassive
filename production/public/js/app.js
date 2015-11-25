@@ -47,9 +47,18 @@ $(document).ready(function() {
   // =============================================================================
 
 
+  $.get('/trendingsearch', calculateTrends, 'json');
 
   $('#search-button').click(function() {
-    searchQuery = $('#search-field').val();
+    $searchterm = $('#search-field').val().toLowerCase();
+
+    // Posts to searches database
+    $.post('/trendingsearch', {word: $searchterm}, function () {
+      console.log($searchterm + ' added to database');
+    });
+
+    $.get('/trendingsearch', calculateTrends, 'json');
+    // $.get('/trendingsearch', renderTrending, 'json');
 
     fetchRandomSearch();
     search = true;
@@ -59,9 +68,28 @@ $(document).ready(function() {
 
 });
 
+
+// =============================================================================
+// GLOBAL VARIABLES  ===========================================================
+// =============================================================================
+
+
 var random = false;
 var search = false;
-var searchQuery = '';
+var $searchterm = '';
+
+
+
+// =============================================================================
+// CALCULATE TRENDS  ===========================================================
+// =============================================================================
+
+
+var words = null;
+
+var calculateTrends = function(data) {
+  words = data;
+};
 
 
 // =============================================================================
@@ -160,25 +188,25 @@ var fetchImagesJsonRandom = function(data) {
 // FETCH TEXT SEARCH  =========================================================
 
 var fetchTextsJsonSearch = function(data) {
-  $.get('/texts/' + searchQuery, renderSingleText, 'json');
+  $.get('/texts/' + $searchterm, renderSingleText, 'json');
 };
 
 // FETCH VIDEO SEARCH  =========================================================
 
 var fetchVideosJsonSearch = function(data) {
-  $.get('/videos/' + searchQuery, renderSingleVideo, 'json');
+  $.get('/videos/' + $searchterm, renderSingleVideo, 'json');
 };
 
 // FETCH GIF SEARCH  =========================================================
 
 var fetchGifsJsonSearch = function(data) {
-  $.get('/gifs/' + searchQuery, renderSingleGif, 'json');
+  $.get('/gifs/' + $searchterm, renderSingleGif, 'json');
 };
 
 // FETCH IMAGE SEARCH  =========================================================
 
 var fetchImagesJsonSearch = function(data) {
-  $.get('/images/' + searchQuery, renderSingleImage, 'json');
+  $.get('/images/' + $searchterm, renderSingleImage, 'json');
 };
 
 
