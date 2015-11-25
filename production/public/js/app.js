@@ -2,6 +2,10 @@ $(document).ready(function() {
 
   console.log('loaded');
 
+  // =============================================================================
+  // RANDOM BUTTON CLICKS  =======================================================
+  // =============================================================================
+
   // random autoplay click =========================================================
 
   $('#random-auto').click(function() {
@@ -12,35 +16,52 @@ $(document).ready(function() {
   // random text click =========================================================
 
   $('#random-text').click(function() {
-    fetchTextsJson();
+    fetchTextsJsonRandom();
     random = false;
   });
 
   // random video click =========================================================
 
   $('#random-video').click(function() {
-    fetchVideosJson();
+    fetchVideosJsonRandom();
     random = false;
   });
 
   // random gif click =========================================================
 
   $('#random-gif').click(function() {
-    fetchGifsJson();
+    fetchGifsJsonRandom();
     random = false;
   });
 
   // random image click =========================================================
 
   $('#random-image').click(function() {
-    fetchImagesJson();
+    fetchImagesJsonRandom();
     random = false;
+  });
+
+
+  // =============================================================================
+  // SEARCH FIELD  ===============================================================
+  // =============================================================================
+
+
+
+  $('#search-button').click(function() {
+    searchQuery = $('#search-field').val();
+
+    fetchRandomSearch();
+    search = true;
+    random = true;
   });
 
 
 });
 
 var random = false;
+var search = false;
+var searchQuery = '';
 
 
 // =============================================================================
@@ -57,19 +78,49 @@ var fetchRandom = function () {
 
   switch (randomFetch) {
     case 0:
-      fetchTextsJson();
+      fetchTextsJsonRandom();
       break;
 
     case 1:
-      fetchVideosJson();
+      fetchVideosJsonRandom();
       break;
 
     case 2:
-      fetchGifsJson();
+      fetchGifsJsonRandom();
       break;
 
     case 3:
-      fetchImagesJson();
+      fetchImagesJsonRandom();
+      break;
+
+    default:
+      console.log('Broken');
+  }
+
+};
+
+// FETCH RANDOM SEARCH  =========================================================
+
+
+var fetchRandomSearch = function () {
+
+  var randomFetch = Math.floor(Math.random() * 4);
+
+  switch (randomFetch) {
+    case 0:
+      fetchTextsJsonSearch();
+      break;
+
+    case 1:
+      fetchVideosJsonSearch();
+      break;
+
+    case 2:
+      fetchGifsJsonSearch();
+      break;
+
+    case 3:
+      fetchImagesJsonSearch();
       break;
 
     default:
@@ -81,26 +132,53 @@ var fetchRandom = function () {
 
 // FETCH TEXT RANDOM  =========================================================
 
-var fetchTextsJson = function(data) {
+var fetchTextsJsonRandom = function(data) {
   $.get('/texts/random', renderSingleText, 'json');
 };
 
 // FETCH VIDEO RANDOM  =========================================================
 
-var fetchVideosJson = function(data) {
+var fetchVideosJsonRandom = function(data) {
   $.get('/videos/random', renderSingleVideo, 'json');
 };
 
 // FETCH GIF RANDOM  =========================================================
 
-var fetchGifsJson = function(data) {
+var fetchGifsJsonRandom = function(data) {
   $.get('/gifs/random', renderSingleGif, 'json');
 };
 
 // FETCH IMAGE RANDOM  =========================================================
 
-var fetchImagesJson = function(data) {
+var fetchImagesJsonRandom = function(data) {
   $.get('/images/random', renderSingleImage, 'json');
+};
+
+
+
+
+// FETCH TEXT SEARCH  =========================================================
+
+var fetchTextsJsonSearch = function(data) {
+  $.get('/texts/' + searchQuery, renderSingleText, 'json');
+};
+
+// FETCH VIDEO SEARCH  =========================================================
+
+var fetchVideosJsonSearch = function(data) {
+  $.get('/videos/' + searchQuery, renderSingleVideo, 'json');
+};
+
+// FETCH GIF SEARCH  =========================================================
+
+var fetchGifsJsonSearch = function(data) {
+  $.get('/gifs/' + searchQuery, renderSingleGif, 'json');
+};
+
+// FETCH IMAGE SEARCH  =========================================================
+
+var fetchImagesJsonSearch = function(data) {
+  $.get('/images/' + searchQuery, renderSingleImage, 'json');
 };
 
 
@@ -150,12 +228,15 @@ var renderSingleText = function(data) {
   clearTimers();
 
 
-  if (random === true) {
+  if (random === true && search === true) {
+    // new search fetch
+    textsTimer = window.setTimeout(fetchRandomSearch, 5000);
+  } else if (random === true && search === false) {
     // new random fetch
     textsTimer = window.setTimeout(fetchRandom, 5000);
   } else {
     // sets new fetch
-    textsTimer = window.setTimeout(fetchTextsJson, 5000);
+    textsTimer = window.setTimeout(fetchTextsJsonRandom, 5000);
   }
 
 
@@ -177,12 +258,15 @@ var renderSingleVideo = function(data) {
   // clears all running timeouts
   clearTimers();
 
-  if (random === true) {
+  if (random === true && search === true) {
+    // new search fetch
+    videosTimer = window.setTimeout(fetchRandomSearch, 10000);
+  } else if (random === true && search === false) {
     // new random fetch
-    videosTimer = window.setTimeout(fetchRandom, 5000);
+    videosTimer = window.setTimeout(fetchRandom, 10000);
   } else {
     // sets new fetch
-    videosTimer = window.setTimeout(fetchVideosJson, 10000);
+    videosTimer = window.setTimeout(fetchVideosJsonRandom, 10000);
   }
 
 };
@@ -204,12 +288,15 @@ var renderSingleGif = function(data) {
   clearTimers();
 
 
-  if (random === true) {
+  if (random === true && search === true) {
+    // new search fetch
+    gifsTimer = window.setTimeout(fetchRandomSearch, 5000);
+  } else if (random === true && search === false) {
     // new random fetch
     gifsTimer = window.setTimeout(fetchRandom, 5000);
   } else {
     // sets new fetch
-    gifsTimer = window.setTimeout(fetchGifsJson, 5000);
+    gifsTimer = window.setTimeout(fetchGifsJsonRandom, 5000);
   }
 
 };
@@ -231,12 +318,15 @@ var renderSingleImage = function(data) {
   clearTimers();
 
 
-  if (random === true) {
+  if (random === true && search === true) {
+    // new search fetch
+    imagesTimer = window.setTimeout(fetchRandomSearch, 5000);
+  } else if (random === true && search === false) {
     // new random fetch
     imagesTimer = window.setTimeout(fetchRandom, 5000);
   } else {
     // sets new fetch
-    imagesTimer = window.setTimeout(fetchImagesJson, 5000);
+    imagesTimer = window.setTimeout(fetchImagesJsonRandom, 5000);
   }
 
 };
