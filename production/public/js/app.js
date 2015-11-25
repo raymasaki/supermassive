@@ -8,9 +8,12 @@ $(document).ready(function() {
 
   // random autoplay click =========================================================
 
-  $('#random-auto').click(function() {
+  $('#random-auto > a').click(function() {
     fetchRandom();
     random = true;
+
+    $('#results-container').show();
+    $('#search-box').hide();
   });
 
   // random text click =========================================================
@@ -63,6 +66,17 @@ $(document).ready(function() {
     fetchRandomSearch();
     search = true;
     random = true;
+
+    $('#results-container').show();
+    $('#search-box').hide();
+  });
+
+  $('#search-field').keypress(function(e){
+    // if enter is pressed triggers search-button click event
+    if(e.which == 13) {
+      $('#search-button').click();
+    }
+
   });
 
 
@@ -250,7 +264,7 @@ var renderSingleText = function(data) {
 
   $container.empty();
 
-  $container.html('<p>' + post_summary + ' – @' + post_user + '</p>');
+  $container.html('<div class="textbox"><p>' + post_summary + '<br>– @' + post_user + '</p></div>');
 
   // clears all running timeouts
   clearTimers();
