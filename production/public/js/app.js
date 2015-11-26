@@ -9,11 +9,18 @@ $(document).ready(function() {
   // random autoplay click =========================================================
 
   $('#random-auto > a').click(function() {
-    fetchRandom();
     random = true;
 
-    $('#results-container').show();
-    $('#search-box').hide();
+    if (first === true) {
+      $('#loading').show();
+
+      window.setTimeout(function () {
+        fetchRandom();
+        $('#results-container').show();
+        $('#search-box').hide();
+      }, 5000);
+    }
+
   });
 
   // random text click =========================================================
@@ -60,15 +67,20 @@ $(document).ready(function() {
       console.log($searchterm + ' added to database');
     });
 
-    $.get('/trendingsearch', calculateTrends, 'json');
-    // $.get('/trendingsearch', renderTrending, 'json');
+    if (first === true) {
+      $('#loading').show();
 
-    fetchRandomSearch();
-    search = true;
-    random = true;
+      window.setTimeout(function () {
+        fetchRandomSearch();
+        search = true;
+        random = true;
 
-    $('#results-container').show();
-    $('#search-box').hide();
+        $('#results-container').show();
+        $('#search-box').hide();
+      }, 5000);
+    }
+
+
   });
 
   $('#search-field').keypress(function(e){
@@ -90,6 +102,7 @@ $(document).ready(function() {
 
 var random = false;
 var search = false;
+var first = true;
 var $searchterm = '';
 
 
