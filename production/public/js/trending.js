@@ -27,7 +27,7 @@ var renderTrending = function(data) {
       countWord = count + ' times';
     }
 
-    $li.html('<span class="trend-word">' + capitalize(trends[i].word) + '</span><br><span class="count">Searched ' + countWord + '</span>');
+    $li.html('<div class="number-' + parseInt(i + 1) + '">' + parseInt(i + 1) + '</div><span class="trend-word">' + capitalize(trends[i].word) + '</span><span class="count">Searched ' + countWord + '</span>');
     $container.append($li);
   }
 

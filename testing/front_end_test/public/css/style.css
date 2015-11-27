@@ -81,6 +81,7 @@ a:hover{
 
 #search-button:hover{
   color:#EFFB4F;
+  background: red;
 }
 
 /* Span that acts as link to random search ------*/

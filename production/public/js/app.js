@@ -11,6 +11,12 @@ $(document).ready(function() {
   $('#random-auto > a').click(function() {
     random = true;
 
+    $('li.home-link').show();
+    $('.video-border').css('z-index', 200);
+    $('.text-border').css('z-index', 200);
+    $('.image-border').css('z-index', 200);
+    $('.gif-border').css('z-index', 200);
+
     if (first === true) {
       $('#loading').show();
 
@@ -25,30 +31,34 @@ $(document).ready(function() {
 
   // random text click =========================================================
 
-  $('#random-text').click(function() {
-    fetchTextsJsonRandom();
-    random = false;
+  $('.text-border').click(function() {
+    console.log('text clicked');
+    // fetchTextsJsonRandom();
+    // random = false;
   });
 
   // random video click =========================================================
 
-  $('#random-video').click(function() {
-    fetchVideosJsonRandom();
-    random = false;
+  $('.video-border').click(function() {
+    console.log('video clicked');
+    // fetchVideosJsonRandom();
+    // random = false;
   });
 
   // random gif click =========================================================
 
-  $('#random-gif').click(function() {
-    fetchGifsJsonRandom();
-    random = false;
+  $('.gif-border').click(function() {
+    console.log('gif clicked');
+    // fetchGifsJsonRandom();
+    // random = false;
   });
 
   // random image click =========================================================
 
-  $('#random-image').click(function() {
-    fetchImagesJsonRandom();
-    random = false;
+  $('.image-border').click(function() {
+    console.log('image clicked');
+    // fetchImagesJsonRandom();
+    // random = false;
   });
 
 
@@ -59,37 +69,46 @@ $(document).ready(function() {
 
   $.get('/trendingsearch', calculateTrends, 'json');
 
-  $('#search-button').click(function() {
-    $searchterm = $('#search-field').val().toLowerCase();
-
-    // Posts to searches database
-    $.post('/trendingsearch', {word: $searchterm}, function () {
-      console.log($searchterm + ' added to database');
-    });
-
-    if (first === true) {
-      $('#loading').show();
-
-      window.setTimeout(function () {
-        fetchRandomSearch();
-        search = true;
-        random = true;
-
-        $('#results-container').show();
-        $('#search-box').hide();
-      }, 5000);
-    }
-
-
-  });
-
   $('#search-field').keypress(function(e){
+
     // if enter is pressed triggers search-button click event
     if(e.which == 13) {
-      $('#search-button').click();
+
+      $('li.home-link').show();
+
+      $('.video-border').css('z-index', 200);
+      $('.text-border').css('z-index', 200);
+      $('.image-border').css('z-index', 200);
+      $('.gif-border').css('z-index', 200);
+
+      $searchterm = $('#search-field').val().toLowerCase();
+
+      // Posts to searches database
+      $.post('/trendingsearch', {word: $searchterm}, function () {
+        console.log($searchterm + ' added to database');
+      });
+
+      if (first === true) {
+        $('#loading').show();
+
+        window.setTimeout(function () {
+          fetchRandomSearch();
+          search = true;
+          random = true;
+
+          $('#results-container').show();
+          $('#search-box').hide();
+        }, 5000);
+      }
+
     }
 
   });
+
+
+
+
+
 
 
 });
