@@ -6,7 +6,10 @@ var favoriteSchema = mongoose.Schema({
 
     user             : { type: mongoose.Schema.ObjectId, ref: 'User', childPath: 'favorites' },
     title            : String,
-    date             : Date,
+    created          : {
+                      type: Date,
+                      default: Date.now
+                     },
     searchTerm       : String,
     url              : String
 

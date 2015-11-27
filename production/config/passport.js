@@ -73,10 +73,10 @@ module.exports = function(passport) {
                     return done(null, newUser);
                 });
 
-                var favorite = new Favorite({ user: newUser._id, title: "hello" });
-                var favorite2 = new Favorite({ user: newUser._id, title: "hello again" });
-                favorite.save();
-                favorite2.save();
+                // var favorite = new Favorite({ user: newUser._id, title: "hello" });
+                // var favorite2 = new Favorite({ user: newUser._id, title: "hello again" });
+                // favorite.save();
+                // favorite2.save();
             }
 
         });

@@ -12,9 +12,7 @@
      <% include ../partials/header %>
   </header>
 
-  <div class="container">
-
-    <h1>Login</h1>
+  <div id="login">
 
     <!-- show any messages that come back with authentication -->
     <% if (message.length > 0) { %>
@@ -37,8 +35,7 @@
       <button type="submit" class="btn btn-warning btn-lg">Login</button>
     </form>
 
-    <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
+    <p><a href="/signup">I don't have an account</a></p>
 
 
   </div>

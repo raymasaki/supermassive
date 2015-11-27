@@ -9,27 +9,25 @@
 <body>
 
   <header>
-     <% include ../partials/header %>
-   </header>
+    <% include ../partials/header %>
+  </header>
 
-  <div class="container">
+  <div id="container">
 
-      <h1>Supermassive</h1>
+    <!-- <a href="/login" class="btn">Login</a>
+    <a href="/signup" class="btn">Signup</a>
+    <a href="/profile" class="btn">Profile</a> -->
 
-      <a href="/login" class="btn">Login</a>
-      <a href="/signup" class="btn">Signup</a>
+    <div id="search-box">
+      <input type="text" id="search-field" placeholder="WHAT DO YOU WANT TO SEE?">
+      <button id="search-button">Submit</button>
+
+      <div id="random-auto"><a>Show me anything</a></div>
+    </div>
 
   </div>
 
-  <div id='search-box'>
-		<!-- <input type="text" name='search' placeholder='Enter a search term...'>
-		<button id='search'>search</button> -->
-		<button id='random-text'>random text</button>
-    <button id='random-video'>random video</button>
-    <button id='random-gif'>random gif</button>
-    <button id='random-image'>random image</button>
-	</div>
-
+  <div id="loading">Loading...</div>
   <div id="results-container"></div>
 
 </body>

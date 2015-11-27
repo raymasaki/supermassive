@@ -17,9 +17,6 @@ var randomImgSearch = function() {
 	$.ajax({
 		url: '/random',
 		method: 'GET',
-    headers: {
-        Authorization: 'Client-ID'
-      }
 		})
 	 .done(renderRandom)
 	 .fail(errorMessage)

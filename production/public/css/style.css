@@ -5,8 +5,95 @@ body {
   /*padding: 20px;*/
 }
 
+#signup, #login, #trending, #profile {
+  margin-top: 40px;
+}
+
+#loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background: black;
+  color: white;
+}
+
 #results-container {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  overflow: hidden;
+  display: none;
+}
+
+.textbox {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  float: left;
+}
+
+.textbox > p {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 100%;
-  height: 100%;
+  color: white;
+}
+
+#container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  float: left;
+}
+
+#search-box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+nav > ul {
+  display: flex;
+}
+
+nav > ul > li {
+  flex-grow: 1;
+}
+
+nav > ul > li.trending-link {
+  text-align: left;
+}
+
+nav > ul > li.home-link {
+  text-align: center;
+}
+
+nav > ul > li.profile-link {
+  text-align: right;
+}
+
+#random-auto {
+  clear: both;
+  display: block;
 }
