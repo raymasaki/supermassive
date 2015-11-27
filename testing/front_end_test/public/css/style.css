@@ -1,5 +1,9 @@
 /*********************    GLOBAL     *********************/
-
+*{
+  background-color: black;
+  border: black;
+  color: #807F7E;
+}
 body {
   font-family: helvetica, sans-serif;
   font-size: 16px;
@@ -7,11 +11,14 @@ body {
   padding: 20px;
   height: 100%;
   width: 100%;
-  background-color: black;
+
 }
 .container {
   height: 80%;
   width: 80%;
+}
+a:hover{
+  color:#EFFB4F;
 }
 
 /*********************    HEADER     *********************/
@@ -19,9 +26,7 @@ body {
 
 /* Editing the navbar of the header ---------------------- */
 
-nav > ul {
-  display: inline-block;
-}
+
 
 /* CSS to style logo for landing page -------------------- */
 
@@ -33,9 +38,12 @@ nav > ul {
 }
 
 .logo-login {
-  margin-left: 50%;
+  margin-left: 53%;
   margin-top: 5%;
   margin-bottom: 2%;
+}
+.btn:hover{
+  color:#EFFB4F;
 }
 
 /*********************    HOME     *********************/
@@ -49,28 +57,41 @@ nav > ul {
   padding-bottom: 40px;
 }
 #search_form {
-  width: 630px;
+  width: 64%;
   height: 70px;
   font-size: 30px;
   text-align: center;
   border: 5px solid white;
-  background-color: black;
   color: white;
 }
+
 #search_form:focus {
   outline: none !important;
-  border: 5px solid yellow;
+  border: 5px solid #EFFB4F;
   box-shadow: 0 0 10px #719ECE;
   color: white;
+}
+
+#search-button{
+  text-align: center;
+  font-size: 25px;
+  margin-left: 28%;
+  padding: 5px;
+}
+
+#search-button:hover{
+  color:#EFFB4F;
 }
 
 /* Span that acts as link to random search ------*/
 
 #random {
-  color: #807F7E;
   font-size: 20px;
   text-align: center;
-  margin-left: 30%;
+  margin-left: 25%;
+}
+#random:hover{
+  color:#EFFB4F;
 }
 
 
@@ -81,16 +102,18 @@ nav > ul {
 /* CSS to style form for signup page -------------------------- */
 
 .signup_form_div {
-  margin-left: 35%;
-  background-color: black;
+  margin-left: 37%;
+  margin-top: 3%;
 }
+
 .form-control {
   border: 5px solid white;
-  background-color: black;
   height: 40px;
   width: 430px;
   color: white;
   margin-top: 5%;
+  font-size: 20px;
+  text-align: center;
 }
 
 /* Adds effect of form div turning yellow on click ------------- */
@@ -108,6 +131,7 @@ nav > ul {
 
 .login_div {
   margin-left: 37%;
+  margin-top: 2%;
 }
 #username {
   color: #807F7E;
@@ -115,29 +139,45 @@ nav > ul {
 #password {
   color: #807F7E;
 }
-
+.btn-btn-warning-btn-lg{
+color:white;
+margin-left: 30%;
+font-size: 20px;
+margin-top: 2%;
+margin-bottom: 3%;
+}
 /* CSS for trending partial div ----------------------------------*/
 
 #trending {
-  height: 420px;
-  width: 630px;
+  height: 390px;
+  width: 70%;
   border: 3px solid white;
-  background-color: black;
-  margin-left: 250px;
-  margin-right: 250px;
-  margin-top: 50px;
+  margin-left: 25%;
+  margin-top: 5%;
+  overflow: scroll;
+  margin-bottom: 3%;
+
 }
 h1 {
   color: white;
   text-align: center;
   font-size: 25px;
-  margin-left: 60px;
+  margin-left: 18%;
 }
 
 /*CSS for profile page ------------------------------------------*/
 
 #edit_profile {
   color: white;
+  margin-left: 53%;
+}
+
+.profile{
+  margin-left:30%;
+  margin-top: 5%;
+  border: 3px solid white;
+  height: 280px;
+  width:60%;
 }
 
 /* CSS for divs creating colored border -------------------------*/
@@ -152,31 +192,144 @@ h1 {
   width: 20px;
   height: 100%;
   background-color: #00e5ff;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
 }
+
+.left-border:hover {
+  width:30px;
+}
+
 .right-border {
   background-color: #ff4081;
   width: 20px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
 }
+
+.right-border:hover {
+  width:30px;
+}
+
 .top-border {
   background-color: #00e676;
   height: 20px;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
 }
+
+.top-border:hover {
+  height:30px;
+}
+
 .bottom-border {
   background-color: #7c4dff;
   height: 20px;
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
+.bottom-border:hover {
+  height:30px;
+}
+.btn-btn-warning-btn-lg{
+  color:white;
+  margin-left: 30%;
+  font-size: 20px;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.btn-btn-warning-btn-lg:hover{
+  color:#EFFB4F;
+}
+
+/* Loading page. Containing style and animation for spinning screen ***/
+
+.loading-message{
+  margin-top: 5%;
+  margin-left: 35%;
+}
+
+#loading{
+  height:300px;
+  width: 300px;
+  border: 1px solid white;
+}
+
+
+#loading-outer{
+  width: 20%;
+  height: 20%;
+  top:0;
+  z-index: 1
+}
+#loading-inner{
+  width: 5%;
+  height:5%;
+  margin-right: 5%;
+  margin-top: 3%;
+  z-index: 2;
+  top:0;
+}
+  #loading-outer{
+  animation: spin;
+   -webkit-animation-name: spin;
+   -webkit-animation-duration: 40000ms;
+   -webkit-animation-iteration-count: infinite;
+   -webkit-animation-timing-function: linear;
+   animation-direction: alternate-reverse;
+}
+}
+
+@-webkit-keyframes spin {
+ from {
+   -webkit-transform:rotate(0deg);
+ }
+
+ to {
+   -webkit-transform:rotate(360deg);
+ }
+ }
+ #loading-inner{
+
+ -webkit-animation-name: spin;
+  -webkit-animation-duration: 40000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+
+}
+
+@-webkit-keyframes spin {
+from {
+  -webkit-transform:rotate(0deg);
+}
+
+to {
+  -webkit-transform:rotate(-360deg);
+}
+
 
 /* CSS for trending and Login icon ------------------ */
+nav{
+  display:inline-block;
+}
+#trending-logo{
+  margin-left: 10%;
+  margin-top: 20%;
+}
+#profile-logo{
+  margin-right: 100px;
+  float:right;
+  right: 0;
+  padding:100px;
+
+}
+.login-home-link:hover{
+  color:yellow;
+}
+}

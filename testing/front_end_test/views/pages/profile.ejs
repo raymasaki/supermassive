@@ -12,23 +12,23 @@
 
   <header>
      <% include ../partials/header %>
-     <div>
-
-     </div>
-     <div>
-
-     </div>
   </header>
 
   <div class="container">
 
+    <div class="logo-login">
+      <% include ../partials/logo %>
+    </div>
+
       <h1>
-        Hi there <%= user.local.username %>...
+        <p id="myGreeting"> </p> <%= user.local.username %> ...
       </h1>
 
         <h2>
           <span id="edit_profile">Edit Profile</span>
         </h2>
+
+      <% include ..//partials/profile %>
 
       <a href="/logout" class="btn btn-default btn-sm">Logout</a>
 
