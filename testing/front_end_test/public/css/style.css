@@ -254,11 +254,17 @@ h1 {
   margin-top: 5%;
   margin-left: 35%;
 }
+#controls{
+  margin-left: 2%;
+  margin-top:  20%
+}
 
 #loading{
   height:300px;
-  width: 300px;
-  border: 1px solid white;
+  width: 400px;
+  margin-left: 37%;
+  margin-top: 15%;
+  text-align: center;
 }
 
 

@@ -11,7 +11,7 @@ $(document).ready(function () {
   /* Making Divs links to different paths ********************/
 
   $(".top-border").click(function() {
-    window.location = $(this).find("a").attr("href");
+    window.location = $(this).find("a").attr("href='video/random'");
     return false;
   });
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
     myGreeting[7] = "Hello ";
     myGreeting[8] = "Hiya ";
     myGreeting[9] = "What's cracking "
-    myGreeting[10] = "Find something fun today "
+    myGreeting[10] = "Find something fun today"
   var myRandom = Math.floor(Math.random()*myGreeting.length);
 
   $('#myGreeting').html(myGreeting[myRandom]);
