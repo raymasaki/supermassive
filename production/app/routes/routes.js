@@ -16,9 +16,15 @@ module.exports = function(app, passport) {
 
 
   app.get('/', function(req, res) {
-    res.render('pages/index.ejs');
+    res.render('pages/index.ejs', {
+      user: req.user
+    });
   });
 
+
+  app.get('/currentuser', function(req, res) {
+    res.send(req.user);
+  });
 
   // LOGIN =========================================================================
 
@@ -27,7 +33,8 @@ module.exports = function(app, passport) {
 
     // render the page and pass in any flash data if it exists
     res.render('pages/login.ejs', {
-      message: req.flash('loginMessage')
+      message: req.flash('loginMessage'),
+      user: req.user
     });
   });
 
@@ -46,7 +53,8 @@ module.exports = function(app, passport) {
 
     // render the page and pass in any flash data if it exists
     res.render('pages/signup.ejs', {
-      message: req.flash('signupMessage')
+      message: req.flash('signupMessage'),
+      user: req.user
     });
   });
 
@@ -86,7 +94,9 @@ module.exports = function(app, passport) {
 
 
   app.get('/trending', function(req, res) {
-    res.render('pages/trending.ejs');
+    res.render('pages/trending.ejs', {
+      user: req.user
+    });
   });
 
   app.get('/trendingsearch', function(req, res, next) {
