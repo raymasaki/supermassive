@@ -12,6 +12,7 @@ $(document).ready(function() {
     random = true;
 
     $('li.home-link').show();
+    $('#favorite').show();
     $('.video-border').css('z-index', 200);
     $('.text-border').css('z-index', 200);
     $('.image-border').css('z-index', 200);
@@ -134,6 +135,7 @@ $(document).ready(function() {
     if(e.which == 13) {
 
       $('li.home-link').show();
+      $('#favorite').show();
 
       $('.video-border').css('z-index', 200);
       $('.text-border').css('z-index', 200);
