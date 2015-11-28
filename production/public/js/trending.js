@@ -1,5 +1,19 @@
 $(document).ready(function () {
   $.get('/trendingsearch', renderTrending, 'json');
+
+  $('.trendlist > h1').velocity({
+    opacity: [1, 0]
+  }, {
+    duration: 500,
+    delay: 100
+  });
+
+  $('ul.trending').velocity({
+    opacity: [1, 0]
+  }, {
+    duration: 500,
+    delay: 800
+  });
 });
 
 

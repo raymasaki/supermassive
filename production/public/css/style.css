@@ -23,8 +23,8 @@ a:hover {
 
 #favorite {
   position: absolute;
-  top: 200px;
-  left: 100px;
+  bottom: 60px;
+  right: 60px;
   z-index: 100;
   display: none;
 }
@@ -55,7 +55,15 @@ h1 {
   height: 100vh;
   display: none;
   background: black;
-  color: white;
+  text-align: center;
+}
+
+#loading > p {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  color: #807F7E;
 }
 
 #results-container {
@@ -75,6 +83,7 @@ h1 {
   height: 100vh;
   text-align: center;
   float: left;
+  background: black;
 }
 
 .textbox > p {
@@ -83,6 +92,12 @@ h1 {
   transform: translateY(-50%);
   width: 100%;
   color: white;
+  box-sizing: border-box;
+  padding: 200px;
+}
+
+.textbox > p > .attr {
+  color: #807F7E;
 }
 
 #container {
@@ -101,6 +116,7 @@ h1 {
   position: fixed;
   left: 0;
   top: 0;
+  cursor: pointer;
 }
 
 .image-border > p {
@@ -110,6 +126,8 @@ h1 {
   top: 50%;
   width: 24px;
   left: 16px;
+  opacity: 0;
+  padding-left: 16px;
 }
 
 .gif-border {
@@ -119,6 +137,7 @@ h1 {
   position: fixed;
   right: 0;
   top: 0;
+  cursor: pointer;
 }
 
 .gif-border > p {
@@ -128,6 +147,8 @@ h1 {
   top: 50%;
   width: 24px;
   right: 16px;
+  opacity: 0;
+  padding-right: 16px;
 }
 
 .video-border {
@@ -137,6 +158,12 @@ h1 {
   position: fixed;
   top: 0;
   text-align: center;
+  cursor: pointer;
+}
+
+.video-border > p {
+  opacity: 0;
+  padding: 5px;
 }
 
 .text-border {
@@ -146,10 +173,23 @@ h1 {
   position: fixed;
   bottom: 0;
   text-align: center;
+  cursor: pointer;
 }
 
 .text-border > p {
   transform: rotateZ(180deg);
+  opacity: 0;
+  padding: 5px;
+}
+
+.active-vertical {
+  transition: all .2s;
+  height: 40px;
+}
+
+.active-horizontal {
+  transition: all .2s;
+  width: 40px;
 }
 
 
@@ -178,6 +218,7 @@ nav > ul > li.trending-link {
 
 nav > ul > li.home-link {
   text-align: center;
+  display: hidden;
 }
 
 nav > ul > li.profile-link {
@@ -193,6 +234,7 @@ nav > ul > li.profile-link {
 
 #logo {
   padding-bottom: 60px;
+  opacity: 0;
 }
 
 #search-box {
@@ -212,6 +254,7 @@ input[type="text"]#search-field {
   font-size: 32px;
   text-align: center;
   transition: all .4s;
+  opacity: 0;
 }
 
 ::-webkit-input-placeholder {
@@ -226,6 +269,7 @@ input[type="text"]#search-field:focus {
 
 #random-auto {
   padding-top: 32px;
+  opacity: 0;
 }
 
 #random-auto {
@@ -238,6 +282,7 @@ input[type="text"]#search-field:focus {
 
 .trendlist > h1 {
   text-align: center;
+  opacity: 0;
 }
 
 .trendlist {
@@ -252,6 +297,7 @@ input[type="text"]#search-field:focus {
   width: 640px;
   border: 5px solid white;
   margin: 0 auto;
+  opacity: 0;
 }
 
 .trendlist > ul > li {
