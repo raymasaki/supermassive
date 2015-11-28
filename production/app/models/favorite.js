@@ -4,7 +4,6 @@ var relationship = require("mongoose-relationship");
 
 var favoriteSchema = mongoose.Schema({
 
-    user             : { type: mongoose.Schema.ObjectId, ref: 'User', childPath: 'favorites' },
     title            : String,
     created          : {
                       type: Date,

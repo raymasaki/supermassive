@@ -11,7 +11,11 @@ var userSchema = mongoose.Schema({
         password     : String
     },
 
-    favorites        : Array
+    favorites        : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Favorite',
+        childPath: 'favorites'
+    }]
 
 });
 
