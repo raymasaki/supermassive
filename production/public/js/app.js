@@ -32,33 +32,61 @@ $(document).ready(function() {
   // random text click =========================================================
 
   $('.text-border').click(function() {
-    console.log('text clicked');
-    // fetchTextsJsonRandom();
-    // random = false;
+    // console.log('text clicked');
+    fetchTextsJsonSearch();
+    random = false;
+    search = true;
+  });
+
+  $("body").keydown(function(e) {
+    if(e.keyCode == 40) { // down
+      $('.text-border').click();
+    }
   });
 
   // random video click =========================================================
 
   $('.video-border').click(function() {
-    console.log('video clicked');
-    // fetchVideosJsonRandom();
-    // random = false;
+    // console.log('video clicked');
+    fetchVideosJsonSearch();
+    random = false;
+    search = true;
+  });
+
+  $("body").keydown(function(e) {
+    if(e.keyCode == 38) { // up
+      $('.video-border').click();
+    }
   });
 
   // random gif click =========================================================
 
   $('.gif-border').click(function() {
-    console.log('gif clicked');
-    // fetchGifsJsonRandom();
-    // random = false;
+    // console.log('gif clicked');
+    fetchGifsJsonSearch();
+    random = false;
+    search = true;
+  });
+
+  $("body").keydown(function(e) {
+    if(e.keyCode == 39) { // right
+      $('.gif-border').click();
+    }
   });
 
   // random image click =========================================================
 
   $('.image-border').click(function() {
-    console.log('image clicked');
-    // fetchImagesJsonRandom();
-    // random = false;
+    // console.log('image clicked');
+    fetchImagesJsonSearch();
+    random = false;
+    search = true;
+  });
+
+  $("body").keydown(function(e) {
+    if(e.keyCode == 37) { // left
+      $('.image-border').click();
+    }
   });
 
 
@@ -104,12 +132,6 @@ $(document).ready(function() {
     }
 
   });
-
-
-
-
-
-
 
 });
 
@@ -308,6 +330,9 @@ var renderSingleText = function(data) {
   } else if (random === true && search === false) {
     // new random fetch
     textsTimer = window.setTimeout(fetchRandom, 5000);
+  } else if (random === false && search === true) {
+    // new search fetch
+    textsTimer = window.setTimeout(fetchTextsJsonSearch, 5000);
   } else {
     // sets new fetch
     textsTimer = window.setTimeout(fetchTextsJsonRandom, 5000);
@@ -338,6 +363,9 @@ var renderSingleVideo = function(data) {
   } else if (random === true && search === false) {
     // new random fetch
     videosTimer = window.setTimeout(fetchRandom, 10000);
+  } else if (random === false && search === true) {
+    // new search fetch
+    videosTimer = window.setTimeout(fetchVideosJsonSearch, 10000);
   } else {
     // sets new fetch
     videosTimer = window.setTimeout(fetchVideosJsonRandom, 10000);
@@ -368,8 +396,11 @@ var renderSingleGif = function(data) {
   } else if (random === true && search === false) {
     // new random fetch
     gifsTimer = window.setTimeout(fetchRandom, 5000);
+  } else if (random === false && search === true) {
+    // new search fetch
+    gifsTimer = window.setTimeout(fetchGifsJsonSearch, 5000);
   } else {
-    // sets new fetch
+    // new random fetch
     gifsTimer = window.setTimeout(fetchGifsJsonRandom, 5000);
   }
 
@@ -398,6 +429,9 @@ var renderSingleImage = function(data) {
   } else if (random === true && search === false) {
     // new random fetch
     imagesTimer = window.setTimeout(fetchRandom, 5000);
+  } else if (random === false && search === true) {
+    // new search fetch
+    imagesTimer = window.setTimeout(fetchImagesJsonSearch, 5000);
   } else {
     // sets new fetch
     imagesTimer = window.setTimeout(fetchImagesJsonRandom, 5000);
