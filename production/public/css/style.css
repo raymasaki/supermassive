@@ -21,6 +21,13 @@ a:hover {
   cursor: pointer;
 }
 
+#favorite {
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  z-index: 100;
+}
+
 h1 {
   font-size: 32px;
   padding-bottom: 32px;

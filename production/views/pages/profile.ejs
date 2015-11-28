@@ -12,12 +12,13 @@
      <% include ../partials/header %>
   </header>
 
-  <% include ../partials/border %> 
+  <% include ../partials/border %>
 
   <div id="profile">
 
       <h1>
         <%= user.local.username %>
+        <%= user._id %>
       </h1>
 
       <a href="/logout" class="btn btn-default btn-sm">Logout</a>

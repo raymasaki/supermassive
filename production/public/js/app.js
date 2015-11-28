@@ -89,6 +89,37 @@ $(document).ready(function() {
     }
   });
 
+  // =============================================================================
+  // FAVORITES  ==================================================================
+  // =============================================================================
+
+
+  $('#favorite').click(function() {
+
+    //$.post('/favorite', {title: })
+
+    favoritedImg = currentImg;
+    favoritedText = currentText;
+    favoritedVideo = currentVideo;
+    favoritedGif = currentGif;
+
+    if (favoritedImg !== null) {
+      console.log(favoritedImg.title);
+      console.log(favoritedImg.url_l);
+    } else if (favoritedVideo !== null) {
+      console.log(favoritedVideo.title);
+      console.log('https://dailymotion.com/video/' + favoritedVideo.id);
+    } else if (favoritedText !== null) {
+      console.log(favoritedText.title);
+      console.log(favoritedText.post_url);
+    } else {
+      //console.log($('#results-container') + ' from ' + favoritedGif.data.username);
+      console.log(favoritedGif.data.url);
+    }
+
+  });
+
+
 
   // =============================================================================
   // SEARCH FIELD  ===============================================================
@@ -146,6 +177,14 @@ var search = false;
 var first = true;
 var $searchterm = '';
 
+var currentImg;
+var currentGif;
+var currentVideo;
+var currentText;
+var favoritedImg;
+var favoritedText;
+var favoritedVideo;
+var favoritedGif;
 
 
 // =============================================================================
@@ -311,9 +350,16 @@ var renderSingleText = function(data) {
 
   var $container = $('#results-container');
 
+
+  //CHANGES!!!!!!!!!
   var post = data.response[Math.floor(Math.random() * 20)];
   var post_user = post.blog_name;
   var post_summary = post.summary;
+  currentImg = null;
+  currentGif = null;
+  currentVideo = null;
+  currentText = post;
+  //CHANGES!!!!!!!!!!
 
 
   $container.empty();
@@ -346,11 +392,18 @@ var renderSingleText = function(data) {
 var renderSingleVideo = function(data) {
 
   var $container = $('#results-container');
-  // debugger;
 
-  var video_id = data.list[Math.floor(Math.random() * 100)].id;
 
+  //CHANGES!!!!!!!!!
+  var video = data.list[Math.floor(Math.random() * 100)];
+  video_id = video.id;
+  currentImg = null;
+  currentGif = null;
+  currentVideo = video;
+  currentText = null;
   $container.empty();
+  //CHANGES!!!!!!!!!
+
 
   $container.html('<iframe frameborder="0" width="100%" height="100%" src="//www.dailymotion.com/embed/video/' + video_id + '?autoplay=1&chromeless=1" allowfullscreen></iframe>');
 
@@ -380,7 +433,15 @@ var renderSingleGif = function(data) {
 
   var $container = $('#results-container');
 
+
+  //CHANGES!!!!!!!!!!
   var gif_url = data.data.image_original_url;
+  currentImg = null;
+  currentGif = data;
+  currentVideo = null;
+  currentText = null;
+  //CHANGES!!!!!!!!!!
+
 
   $container.empty();
 
@@ -413,7 +474,16 @@ var renderSingleImage = function(data) {
 
   var $container = $('#results-container');
 
-  var image_url = data.photos.photo[Math.floor(Math.random() * 100)].url_l;
+
+  //CHANGES!!!!!!!!
+  var image = data.photos.photo[Math.floor(Math.random() * 100)];
+  var image_url = image.url_l;
+  currentImg = image;
+  currentGif = null;
+  currentVideo = null;
+  currentText = null;
+  //CHANGES!!!!!!!
+
 
   $container.empty();
 
