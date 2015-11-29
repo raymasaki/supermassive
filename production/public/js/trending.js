@@ -12,7 +12,7 @@ $(document).ready(function () {
     opacity: [1, 0]
   }, {
     duration: 500,
-    delay: 800
+    delay: 600
   });
 });
 
