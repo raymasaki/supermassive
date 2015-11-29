@@ -52,6 +52,7 @@ a:hover {
 
 h1 {
   font-family: 'CooperHewitt-Semibold', helvetica, sans-serif;
+  text-transform: uppercase;
   font-size: 32px;
   padding-bottom: 32px;
 }
@@ -404,6 +405,7 @@ label {
 }
 
 input[type="text"] {
+  font-family: 'SuisseIntl-Medium', helvetica, sans-serif;
   margin-bottom: 8px;
 }
 
@@ -439,6 +441,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 button[type="submit"] {
+  font-family: 'CooperHewitt-Semibold', helvetica, sans-serif;
   color: #EFFB4F;
   border: none;
   background: none;

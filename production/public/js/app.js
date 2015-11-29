@@ -57,6 +57,34 @@ $(document).ready(function() {
   // random text click =========================================================
 
   $('.text-border').click(function() {
+
+    $('.text-border').velocity({
+      height: "40px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.video-border').velocity({
+      height: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.image-border, .gif-border').velocity({
+      width: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.text-border > p').fadeIn();
+    $('.video-border > p, .image-border > p, .gif-border > p').fadeOut();
+
     // console.log('text clicked');
     fetchTextsJsonSearch();
     random = false;
@@ -72,6 +100,34 @@ $(document).ready(function() {
   // random video click =========================================================
 
   $('.video-border').click(function() {
+
+    $('.video-border').velocity({
+      height: "40px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.text-border').velocity({
+      height: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.image-border, .gif-border').velocity({
+      width: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.video-border > p').fadeIn();
+    $('.text-border > p, .image-border > p, .gif-border > p').fadeOut();
+
     // console.log('video clicked');
     fetchVideosJsonSearch();
     random = false;
@@ -79,7 +135,7 @@ $(document).ready(function() {
   });
 
   $("body").keydown(function(e) {
-    if(e.keyCode == 38) { // up
+    if (e.keyCode == 38) { // up
       $('.video-border').click();
     }
   });
@@ -87,6 +143,34 @@ $(document).ready(function() {
   // random gif click =========================================================
 
   $('.gif-border').click(function() {
+
+    $('.gif-border').velocity({
+      width: "40px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.video-border, .text-border').velocity({
+      height: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.image-border').velocity({
+      width: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.gif-border > p').fadeIn();
+    $('.video-border > p, .image-border > p, .text-border > p').fadeOut();
+
     // console.log('gif clicked');
     fetchGifsJsonSearch();
     random = false;
@@ -94,7 +178,7 @@ $(document).ready(function() {
   });
 
   $("body").keydown(function(e) {
-    if(e.keyCode == 39) { // right
+    if (e.keyCode == 39) { // right
       $('.gif-border').click();
     }
   });
@@ -102,6 +186,34 @@ $(document).ready(function() {
   // random image click =========================================================
 
   $('.image-border').click(function() {
+
+    $('.image-border').velocity({
+      width: "40px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.video-border, .text-border').velocity({
+      height: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.gif-border').velocity({
+      width: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.image-border > p').fadeIn();
+    $('.video-border > p, .text-border > p, .gif-border > p').fadeOut();
+
     // console.log('image clicked');
     fetchImagesJsonSearch();
     random = false;
@@ -109,7 +221,7 @@ $(document).ready(function() {
   });
 
   $("body").keydown(function(e) {
-    if(e.keyCode == 37) { // left
+    if (e.keyCode == 37) { // left
       $('.image-border').click();
     }
   });
@@ -173,14 +285,16 @@ $(document).ready(function() {
       $('.video-border, .text-border').velocity({
         height: "40px"
       }, {
-        duration: 500,
+        duration: 600,
+        delay: 100,
         easing: 'spring'
       });
 
       $('.image-border, .gif-border').velocity({
         width: "40px"
       }, {
-        duration: 500,
+        duration: 600,
+        delay: 100,
         easing: 'spring'
       });
 
