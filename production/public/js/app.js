@@ -40,8 +40,9 @@ $(document).ready(function() {
     random = true;
 
     $('li.home-link').show();
+    $('.keys').hide();
+    // $('#favorite').css('opacity', 1);
 
-    $('#favorite').show();
     $('.video-border').css({'z-index': 200, 'pointer-events': 'none'});
     $('.text-border').css({'z-index': 200, 'pointer-events': 'none'});
     $('.image-border').css({'z-index': 200, 'pointer-events': 'none'});
@@ -243,6 +244,8 @@ $(document).ready(function() {
     favoritedVideo = currentVideo;
     favoritedGif = currentGif;
 
+    $('#favorite').addClass('loved');
+
     $searchterm = $('#search-field').val().toLowerCase();
 
     if (favoritedImg !== null) {
@@ -296,12 +299,12 @@ $(document).ready(function() {
 
       $('li.home-link').show();
 
-      $('#favorite').show();
+      // $('#favorite').css('opacity', 1);
 
-      $('.video-border').css('z-index', 200);
-      $('.text-border').css('z-index', 200);
-      $('.image-border').css('z-index', 200);
-      $('.gif-border').css('z-index', 200);
+      $('.video-border').css('pointer-events', 'auto');
+      $('.text-border').css('pointer-events', 'auto');
+      $('.image-border').css('pointer-events', 'auto');
+      $('.gif-border').css('pointer-events', 'auto');
 
       // $('.video-border, .text-border').addClass('active-vertical');
       // $('.image-border, .gif-border').addClass('active-horizontal');
@@ -460,24 +463,28 @@ var fetchRandomSearch = function () {
 
 var fetchTextsJsonRandom = function(data) {
   $.get('/texts/random', renderSingleText, 'json');
+  $('#favorite').removeClass('loved');
 };
 
 // FETCH VIDEO RANDOM  =========================================================
 
 var fetchVideosJsonRandom = function(data) {
   $.get('/videos/random', renderSingleVideo, 'json');
+  $('#favorite').removeClass('loved');
 };
 
 // FETCH GIF RANDOM  =========================================================
 
 var fetchGifsJsonRandom = function(data) {
   $.get('/gifs/random', renderSingleGif, 'json');
+  $('#favorite').removeClass('loved');
 };
 
 // FETCH IMAGE RANDOM  =========================================================
 
 var fetchImagesJsonRandom = function(data) {
   $.get('/images/random', renderSingleImage, 'json');
+  $('#favorite').removeClass('loved');
 };
 
 
@@ -487,24 +494,28 @@ var fetchImagesJsonRandom = function(data) {
 
 var fetchTextsJsonSearch = function(data) {
   $.get('/texts/' + $searchterm, renderSingleText, 'json');
+  $('#favorite').removeClass('loved');
 };
 
 // FETCH VIDEO SEARCH  =========================================================
 
 var fetchVideosJsonSearch = function(data) {
   $.get('/videos/' + $searchterm, renderSingleVideo, 'json');
+  $('#favorite').removeClass('loved');
 };
 
 // FETCH GIF SEARCH  =========================================================
 
 var fetchGifsJsonSearch = function(data) {
   $.get('/gifs/' + $searchterm, renderSingleGif, 'json');
+  $('#favorite').removeClass('loved');
 };
 
 // FETCH IMAGE SEARCH  =========================================================
 
 var fetchImagesJsonSearch = function(data) {
   $.get('/images/' + $searchterm, renderSingleImage, 'json');
+  $('#favorite').removeClass('loved');
 };
 
 

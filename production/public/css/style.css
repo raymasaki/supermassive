@@ -46,8 +46,14 @@ a:hover {
   position: absolute;
   bottom: 60px;
   right: 60px;
-  z-index: 100;
-  display: none;
+  z-index: 300;
+  cursor: pointer;
+  /*opacity: 0;*/
+}
+
+#favorite.loved > svg * {
+  fill: #EFFB4F;
+  stroke: #EFFB4F;
 }
 
 h1 {
@@ -62,31 +68,6 @@ h1 {
   width: 100vw;
   height: 100vh;
   float: left;
-}
-
-#profile {
-  position: absolute;
-  top: 200px;
-  left: 100px;
-}
-
-#loading {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: none;
-  background: black;
-  text-align: center;
-}
-
-#loading > p {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  color: #807F7E;
 }
 
 #results-container {
@@ -140,6 +121,8 @@ h1 {
   left: 0;
   top: 0;
   cursor: pointer;
+  pointer-events: none;
+  z-index: 200;
 }
 
 .image-border > p {
@@ -162,6 +145,8 @@ h1 {
   right: 0;
   top: 0;
   cursor: pointer;
+  pointer-events: none;
+  z-index: 200;
 }
 
 .gif-border > p {
@@ -184,6 +169,8 @@ h1 {
   top: 0;
   text-align: center;
   cursor: pointer;
+  pointer-events: none;
+  z-index: 200;
 }
 
 .video-border > p {
@@ -200,6 +187,8 @@ h1 {
   bottom: 0;
   text-align: center;
   cursor: pointer;
+  pointer-events: none;
+  z-index: 200;
 }
 
 .text-border > p {
@@ -223,7 +212,7 @@ h1 {
 /*********************    HEADER     *********************/
 
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
@@ -393,6 +382,70 @@ input[type="text"]#search-field:focus {
 }
 
 
+/*********************    PROFILE     *********************/
+
+.profilelist > h1 {
+  text-align: center;
+  /*opacity: 0;*/
+}
+
+.logout {
+  text-align: center;
+  padding-bottom: 16px;
+}
+
+.profilelist {
+  width: 100%;
+  margin-top: 160px;
+  margin-bottom: 160px;
+}
+
+ul.favorites {
+  width: 640px;
+  border: 5px solid white;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 24px;
+}
+
+ul.favorites > li {
+  padding-bottom: 8px;
+}
+
+ul.favorites > li > a {
+  color: white;
+}
+
+ul.favorites > li > .timestamp {
+  color: #807F7E;
+  font-size: 16px;
+}
+
+span.video-type {
+  color: #00e676;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+span.image-type {
+  color: #00e5ff;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+span.text-type {
+  color: #7c4dff;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+span.gif-type {
+  color: #ff4081;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+
 /*********************    LOGIN/SIGNUP     *********************/
 
 label {
@@ -448,4 +501,144 @@ button[type="submit"] {
   font-size: 32px;
   margin: 24px 0 16px 0;
   cursor: pointer;
+}
+
+
+/*********************    LOADING ANIMATION     *********************/
+
+
+#loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background: black;
+  text-align: center;
+}
+
+#loading > p {
+  position: absolute;
+  top: 48%;
+  transform: translateY(-48%);
+  width: 100%;
+  color: white;
+}
+
+.keys {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.keys > p {
+  font-size: 16px;
+  color: #807F7E;
+}
+
+#loader {
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translateY(-48%) translateX(-50%);
+}
+
+.ring1 {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: #00e676;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    animation-direction: normal;
+}
+
+.ring2 {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: #00e5ff;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  -webkit-animation: spin 2.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    animation-direction: reverse;
+}
+
+.ring3 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: #7c4dff;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    animation-direction: normal;
+}
+
+.ring4 {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: #ff4081;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    animation-direction: reverse;
+}
+
+.ring5 {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: #333;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  -webkit-animation: spin 1.25s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 1.25s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    animation-direction: normal;
+}
+
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
 }

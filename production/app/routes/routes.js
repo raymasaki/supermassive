@@ -28,7 +28,7 @@ module.exports = function(app, passport) {
 
   app.get('/favorites', function(req, res) {
 
-    Favorite.find({userId: req.user._id}).exec(function(err, favorites) {
+    Favorite.find({userId: req.user._id}).sort({ created: -1 }).exec(function(err, favorites) {
       if (err) return next(err);
       res.send(favorites);
     });

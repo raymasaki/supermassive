@@ -14,15 +14,25 @@
 
   <% include ../partials/border %>
 
-  <%if (user !=undefined) {%>
-    <button id='favorite'>Favorite</button>
-  <% } %>
-
   <div id="container">
 
-    <!-- <a href="/login" class="btn">Login</a>
-    <a href="/signup" class="btn">Signup</a>
-    <a href="/profile" class="btn">Profile</a> -->
+    <%if (user !=undefined) {%>
+      <div id="favorite">
+        <svg width="30px" height="26px" viewBox="0 0 30 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+          <!-- Generator: Sketch 3.4.2 (15855) - http://www.bohemiancoding.com/sketch -->
+            <title>Page 1</title>
+            <desc>Created with Sketch.</desc>
+            <defs></defs>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                <g id="04_Post" sketch:type="MSArtboardGroup" transform="translate(-1169.000000, -691.000000)" stroke="#FFFFFF" stroke-width="3">
+                    <g id="favorite" sketch:type="MSLayerGroup" transform="translate(1168.000000, 688.000000)">
+                        <path d="M21.7712,5 C19.2712,5 16.928,6.9712 15.8,8.0856 C14.6712,6.9712 12.328,5 9.828,5 C5.5568,5 3,7.5 3,11.6856 C3,15.1144 6.1424,17.9856 6.2568,18.0856 L15.1712,26.6856 C15.3424,26.8576 15.5712,26.9432 15.8,26.9432 C16.028,26.9432 16.2568,26.8576 16.428,26.6856 L25.328,18.1144 C25.4568,17.9856 28.6,15.1144 28.6,11.6856 C28.6,7.5 26.0424,5 21.7712,5" id="Page-1" sketch:type="MSShapeGroup"></path>
+                    </g>
+                </g>
+            </g>
+        </svg>
+      </div>
+    <% } %>
 
     <div id="search-box">
 
@@ -91,7 +101,51 @@
 
   </div>
 
-  <div id="loading"><p>Generating your blackhole...</p></div>
+  <div id="loading">
+
+    <div class="keys">
+      <svg width="141px" height="66px" viewBox="0 0 141 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+          <!-- Generator: Sketch 3.4.2 (15855) - http://www.bohemiancoding.com/sketch -->
+          <title>keys</title>
+          <desc>Created with Sketch.</desc>
+          <defs></defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+              <g id="03_Loading" sketch:type="MSArtboardGroup" transform="translate(-569.000000, -607.000000)">
+                  <g id="keys" sketch:type="MSLayerGroup" transform="translate(571.000000, 609.000000)">
+                      <g id="Fill-1-+-Fill-9" transform="translate(48.000000, 0.000000)" sketch:type="MSShapeGroup">
+                          <path d="M34,0 L7.33333333,0 C3.65133333,0 0.666666667,2.98466667 0.666666667,6.66666667 L0.666666667,20 C0.666666667,23.682 3.65133333,26.6666667 7.33333333,26.6666667 L34,26.6666667 C37.682,26.6666667 40.6666667,23.682 40.6666667,20 L40.6666667,6.66666667 C40.6666667,2.98466667 37.682,0 34,0" id="Fill-1" stroke="#00E676" stroke-width="3"></path>
+                          <path d="M20.5042667,10.1184 L22.0042667,12.7257333 L23.5042667,15.3330667 L20.5042667,15.3330667 L17.5042667,15.3330667 L19.0042667,12.7257333 L20.5042667,10.1184 Z" id="Fill-9" fill="#FFFFFF"></path>
+                      </g>
+                      <g id="Fill-3-+-Fill-11" transform="translate(48.000000, 35.000000)" sketch:type="MSShapeGroup">
+                          <path d="M34,0.333333333 L7.33333333,0.333333333 C3.65133333,0.333333333 0.666666667,3.318 0.666666667,7 L0.666666667,20.3333333 C0.666666667,24.0153333 3.65133333,27 7.33333333,27 L34,27 C37.682,27 40.6666667,24.0153333 40.6666667,20.3333333 L40.6666667,7 C40.6666667,3.318 37.682,0.333333333 34,0.333333333" id="Fill-3" stroke="#7C4DFF" stroke-width="3"></path>
+                          <path d="M20.5042667,16.3333333 L19.0042667,13.6666667 L17.5042667,11 L20.5042667,11 L23.5042667,11 L22.0042667,13.6666667 L20.5042667,16.3333333 Z" id="Fill-11" fill="#FFFFFF"></path>
+                      </g>
+                      <g id="Fill-5-+-Fill-13" transform="translate(0.000000, 35.000000)" sketch:type="MSShapeGroup">
+                          <path d="M33.3333333,0.333333333 L6.66666667,0.333333333 C2.98466667,0.333333333 0,3.318 0,7 L0,20.3333333 C0,24.0153333 2.98466667,27 6.66666667,27 L33.3333333,27 C37.0153333,27 40,24.0153333 40,20.3333333 L40,7 C40,3.318 37.0153333,0.333333333 33.3333333,0.333333333" id="Fill-5" stroke="#00E5FF" stroke-width="3"></path>
+                          <path d="M16.8333333,13.6666667 L19.1686667,12.1666667 L21.504,10.6666667 L21.504,13.6666667 L21.504,16.6666667 L19.1686667,15.1666667 L16.8333333,13.6666667 Z" id="Fill-13" fill="#FFFFFF"></path>
+                      </g>
+                      <g id="Fill-7-+-Fill-15" transform="translate(97.000000, 35.000000)" sketch:type="MSShapeGroup">
+                          <path d="M33.6666,0.333333333 L6.99993333,0.333333333 C3.31793333,0.333333333 0.333266667,3.318 0.333266667,7 L0.333266667,20.3333333 C0.333266667,24.0153333 3.31793333,27 6.99993333,27 L33.6666,27 C37.3486,27 40.3332667,24.0153333 40.3332667,20.3333333 L40.3332667,7 C40.3332667,3.318 37.3486,0.333333333 33.6666,0.333333333" id="Fill-7" stroke="#FF4081" stroke-width="3"></path>
+                          <path d="M23.6666667,13.6666667 L21.0853333,15.1666667 L18.504,16.6666667 L18.504,13.6666667 L18.504,10.6666667 L21.0853333,12.1666667 L23.6666667,13.6666667 Z" id="Fill-15" fill="#FFFFFF"></path>
+                      </g>
+                  </g>
+              </g>
+          </g>
+      </svg>
+      <p>Navigate using your keyboard arrows</p>
+    </div>
+
+    <div id="loader">
+      <div class="ring1"></div>
+      <div class="ring2"></div>
+      <div class="ring3"></div>
+      <div class="ring4"></div>
+      <div class="ring5"></div>
+    </div>
+
+    <p>Generating your blackhole...</p>
+  </div>
+
   <div id="results-container"></div>
 
 </body>

@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-  console.log('userfavorites loaded');
-
   $.get('/favorites', renderFavorites, 'json');
 
 });
@@ -14,15 +12,15 @@ $(document).ready(function () {
 
 var renderFavorites = function(data) {
 
-  var $container = $('#favorites-list');
+  var $container = $('ul.favorites');
   $container.empty();
 
   var favorites = data;
 
-  favorites.forEach(function (favorite) {
-    var $li = $('<li>');
-    $li.html('<a href=' + favorite.url + ' target="_blank">' + favorite.title + '</a> <span class="timestamp">' + favorite.created + '</span>');
-    $container.append($li);
-  });
+  for (var i = 0; i < 20; i++) {
+      var $li = $('<li>');
+      $li.html('<a href=' + favorites[i].url + ' target="_blank">' + favorites[i].title + '</a><br><span class="' + favorites[i].type + '-type"> ' + favorites[i].type + '</span> <span class="timestamp">– ' + moment(favorites[i].created).fromNow() + '</span>');
+      $container.append($li);
+  }
 
 };

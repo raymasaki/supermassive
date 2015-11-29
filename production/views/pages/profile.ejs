@@ -17,14 +17,18 @@
 
   <div id="profile">
 
-      <h1>
-        <%= user.local.username %>
-      </h1>
+      <div class="profilelist">
+        <h1>
+          <%= user.local.username %>
+        </h1>
 
-      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <div class="logout">
+          <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        </div>
 
-      <div id="favorites-list">
-
+        <div id="favorites-list">
+          <ul class="favorites"></ul>
+        </div>
       </div>
 
   </div>
