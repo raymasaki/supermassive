@@ -9,14 +9,7 @@ var userSchema = mongoose.Schema({
     local            : {
         username     : String,
         password     : String
-    },
-
-    favorites        : [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Favorite',
-        childPath: 'favorites'
-    }]
-
+    }
 });
 
 // methods ======================

@@ -2,6 +2,11 @@ $(document).ready(function() {
 
   console.log('loaded');
 
+  // pulls current user ID json
+  $.get('/currentuser', function(data) {
+    currentId = data._id;
+  }, 'json');
+
   $('#logo').velocity({
     opacity: [1, 0],
     scale: [1, 0.8]
@@ -233,27 +238,46 @@ $(document).ready(function() {
 
   $('#favorite').click(function() {
 
-    //$.post('/favorite', {title: })
-
     favoritedImg = currentImg;
     favoritedText = currentText;
     favoritedVideo = currentVideo;
     favoritedGif = currentGif;
 
-    if (favoritedImg !== null) {
-      console.log(favoritedImg.title);
-      console.log(favoritedImg.url_l);
-    } else if (favoritedVideo !== null) {
-      console.log(favoritedVideo.title);
-      console.log('https://dailymotion.com/video/' + favoritedVideo.id);
-    } else if (favoritedText !== null) {
-      console.log(favoritedText.title);
-      console.log(favoritedText.post_url);
-    } else {
-      //console.log($('#results-container') + ' from ' + favoritedGif.data.username);
-      console.log(favoritedGif.data.url);
-    }
+    $searchterm = $('#search-field').val().toLowerCase();
 
+    if (favoritedImg !== null) {
+      $.post('/favorites', {title: favoritedImg.title, url: favoritedImg.url_l, userId: currentId, type: 'image'}, function() {
+        console.log('favorited');
+      });
+
+    } else if (favoritedVideo !== null) {
+      $.post('/favorites', {title: favoritedVideo.title, url: 'https://dailymotion.com/video/' + favoritedVideo.id, userId: currentId, type: 'video'}, function() {
+        console.log('favorited');
+      });
+
+    } else if (favoritedText !== null) {
+        if (random === true) {
+          $.post('/favorites', {title: 'random from ' + favoritedText.blog_name, url: favoritedText.post_url, userId: currentId, type: 'text'}, function() {
+          console.log('favorited');
+          });
+        } else {
+          $.post('/favorites', {title: $searchterm + ' from ' + favoritedText.blog_name, url: favoritedText.post_url, userId: currentId, type: 'text'}, function() {
+            console.log('favorited');
+          });
+        }
+
+    } else {
+      if (random === true) {
+        $.post('/favorites', {title: 'random gif', url: favoritedGif.data.url, userId: currentId, type: 'gif'}, function() {
+        console.log('favorited');
+        });
+      } else {
+        $.post('/favorites', {title: $searchterm + ' gif', url: favoritedGif.data.url, userId: currentId, type: 'gif'}, function() {
+          console.log('favorited');
+        });
+      }
+
+    }
   });
 
 
@@ -350,6 +374,8 @@ var favoritedImg;
 var favoritedText;
 var favoritedVideo;
 var favoritedGif;
+
+var currentId;
 
 
 // =============================================================================

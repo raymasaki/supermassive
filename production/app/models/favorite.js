@@ -10,8 +10,9 @@ var favoriteSchema = mongoose.Schema({
                       default: Date.now
                      },
     searchTerm       : String,
-    url              : String
-
+    url              : String,
+    userId           : String,
+    type             : String
 });
 
 module.exports = mongoose.model('Favorite', favoriteSchema);

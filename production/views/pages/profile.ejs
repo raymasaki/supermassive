@@ -4,6 +4,7 @@
 <head>
   <title>Supermassive</title>
   <% include ../partials/head %>
+  <script src="./js/userfavorites.js"></script>
 </head>
 
 <body class="profile-page">
@@ -18,10 +19,13 @@
 
       <h1>
         <%= user.local.username %>
-        <%= user._id %>
       </h1>
 
       <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+
+      <div id="favorites-list">
+
+      </div>
 
   </div>
 </body>

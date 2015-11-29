@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
     Search = require('../models/search.js'),
+    Favorite = require('../models/favorite.js'),
     bodyParser = require('body-parser'),
     express = require('express');
 
@@ -21,9 +22,17 @@ module.exports = function(app, passport) {
     });
   });
 
-
   app.get('/currentuser', function(req, res) {
     res.send(req.user);
+  });
+
+  app.get('/favorites', function(req, res) {
+
+    Favorite.find({userId: req.user._id}).exec(function(err, favorites) {
+      if (err) return next(err);
+      res.send(favorites);
+    });
+
   });
 
   // LOGIN =========================================================================
