@@ -677,14 +677,12 @@ var renderSingleImage = function(data) {
   var $container = $('#results-container');
 
 
-  //CHANGES!!!!!!!!
   var image = data.photos.photo[Math.floor(Math.random() * 100)];
   var image_url = image.url_l;
   currentImg = image;
   currentGif = null;
   currentVideo = null;
   currentText = null;
-  //CHANGES!!!!!!!
 
 
   $container.empty();
