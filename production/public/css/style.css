@@ -70,6 +70,14 @@ h1 {
   float: left;
 }
 
+#login {
+  opacity: 0;
+}
+
+#signup {
+  opacity: 0;
+}
+
 #results-container {
   position: absolute;
   top: 0;
@@ -403,6 +411,7 @@ input[type="text"]#search-field:focus {
   width: 100%;
   margin-top: 160px;
   margin-bottom: 160px;
+  opacity: 0;
 }
 
 ul.favorites {

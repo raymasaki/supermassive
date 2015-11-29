@@ -2,6 +2,13 @@ $(document).ready(function () {
 
   $.get('/favorites', renderFavorites, 'json');
 
+  $('.profilelist').velocity({
+    opacity: [1, 0]
+  }, {
+    duration: 500,
+    delay: 100
+  });
+
 });
 
 

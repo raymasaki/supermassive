@@ -1,6 +1,11 @@
 $(document).ready(function() {
 
-  console.log('loaded');
+  $('#login, #signup').velocity({
+    opacity: [1, 0]
+  }, {
+    duration: 500,
+    delay: 100
+  });
 
   // pulls current user ID json
   $.get('/currentuser', function(data) {
