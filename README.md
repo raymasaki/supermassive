@@ -1,5 +1,36 @@
 # supermassive
 
+Supermassive is your internet black hole. A place to discover what randomness awaits you in gif, text , image and video form.
+
+###Technologies Used
+	-Node/ Express
+	-Tumblr API 
+	-Flikr API
+	-Giphy API
+	-Daily Motion API
+	-EJS - A templating front end module.
+	-Mongoose - MongoDB object modeling for Node.js.
+	-Morgan - Node to write log line as request instead of response.
+	-FS - Extension to original Node.js FS library.
+	-Passport _ Authentication middleware for Node.js.
+	-bcrypt-nodejs - Library to hash passwords.
+	-Method-override - Creates an override to req.method property with new value.
+	-cookie-parser - Parse cookie header and popular req.cookies.
+	-connect-flash - Connects special area for storing messages.
+
+### Approach 
+	-Started with brainstorming.
+	-Created wireframes.
+	-Built universal parts of backend.
+	-Searched for and tested APIs to see what were both attainable and true to the original vision of the project.
+	-Divided labor between focusing on database reading and writing, front end, implementing the API’s properly, creating favorites and trending features. 
+	-Pulled together different branches of work to create a working prototype.
+	-Integrated front end and polished design.
+	-Put site through QA to make sure it is feature rich and bug free.
+
+### Unresolved Problems
+	
+
 ### Project Features
 
 - Search, Trending, Random
@@ -67,6 +98,7 @@
 ![Log In](http://i.imgur.com/FGnperp.png "Super Massive Log In")
 ![Sign Up](http://i.imgur.com/IClYYMY.png "Super Massive Sign Up")
 ![Profile](http://i.imgur.com/ABK4prY.png "Super Massive Profile")
+
 
 
 
