@@ -2,6 +2,29 @@ $(document).ready(function() {
 
   console.log('loaded');
 
+  $('#logo').velocity({
+    opacity: [1, 0],
+    scale: [1, 0.8]
+  }, {
+    duration: 1200,
+    delay: 100,
+    easing: [0.37, 0.36, 0.13,1]
+  });
+
+  $('#search-field').velocity({
+    opacity: [1, 0]
+  }, {
+    duration: 500,
+    delay: 300
+  });
+
+  $('#random-auto').velocity({
+    opacity: [1, 0]
+  }, {
+    duration: 500,
+    delay: 500
+  });
+
   // =============================================================================
   // RANDOM BUTTON CLICKS  =======================================================
   // =============================================================================
@@ -12,11 +35,12 @@ $(document).ready(function() {
     random = true;
 
     $('li.home-link').show();
+
     $('#favorite').show();
-    $('.video-border').css('z-index', 200);
-    $('.text-border').css('z-index', 200);
-    $('.image-border').css('z-index', 200);
-    $('.gif-border').css('z-index', 200);
+    $('.video-border').css({'z-index': 200, 'pointer-events': 'none'});
+    $('.text-border').css({'z-index': 200, 'pointer-events': 'none'});
+    $('.image-border').css({'z-index': 200, 'pointer-events': 'none'});
+    $('.gif-border').css({'z-index': 200, 'pointer-events': 'none'});
 
     if (first === true) {
       $('#loading').show();
@@ -33,6 +57,34 @@ $(document).ready(function() {
   // random text click =========================================================
 
   $('.text-border').click(function() {
+
+    $('.text-border').velocity({
+      height: "40px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.video-border').velocity({
+      height: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.image-border, .gif-border').velocity({
+      width: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.text-border > p').fadeIn();
+    $('.video-border > p, .image-border > p, .gif-border > p').fadeOut();
+
     // console.log('text clicked');
     fetchTextsJsonSearch();
     random = false;
@@ -48,6 +100,34 @@ $(document).ready(function() {
   // random video click =========================================================
 
   $('.video-border').click(function() {
+
+    $('.video-border').velocity({
+      height: "40px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.text-border').velocity({
+      height: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.image-border, .gif-border').velocity({
+      width: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.video-border > p').fadeIn();
+    $('.text-border > p, .image-border > p, .gif-border > p').fadeOut();
+
     // console.log('video clicked');
     fetchVideosJsonSearch();
     random = false;
@@ -55,7 +135,7 @@ $(document).ready(function() {
   });
 
   $("body").keydown(function(e) {
-    if(e.keyCode == 38) { // up
+    if (e.keyCode == 38) { // up
       $('.video-border').click();
     }
   });
@@ -63,6 +143,34 @@ $(document).ready(function() {
   // random gif click =========================================================
 
   $('.gif-border').click(function() {
+
+    $('.gif-border').velocity({
+      width: "40px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.video-border, .text-border').velocity({
+      height: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.image-border').velocity({
+      width: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.gif-border > p').fadeIn();
+    $('.video-border > p, .image-border > p, .text-border > p').fadeOut();
+
     // console.log('gif clicked');
     fetchGifsJsonSearch();
     random = false;
@@ -70,7 +178,7 @@ $(document).ready(function() {
   });
 
   $("body").keydown(function(e) {
-    if(e.keyCode == 39) { // right
+    if (e.keyCode == 39) { // right
       $('.gif-border').click();
     }
   });
@@ -78,6 +186,34 @@ $(document).ready(function() {
   // random image click =========================================================
 
   $('.image-border').click(function() {
+
+    $('.image-border').velocity({
+      width: "40px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.video-border, .text-border').velocity({
+      height: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.gif-border').velocity({
+      width: "24px"
+    }, {
+      duration: 600,
+      delay: 100,
+      easing: 'spring'
+    });
+
+    $('.image-border > p').fadeIn();
+    $('.video-border > p, .text-border > p, .gif-border > p').fadeOut();
+
     // console.log('image clicked');
     fetchImagesJsonSearch();
     random = false;
@@ -85,7 +221,7 @@ $(document).ready(function() {
   });
 
   $("body").keydown(function(e) {
-    if(e.keyCode == 37) { // left
+    if (e.keyCode == 37) { // left
       $('.image-border').click();
     }
   });
@@ -135,12 +271,39 @@ $(document).ready(function() {
     if(e.which == 13) {
 
       $('li.home-link').show();
+
       $('#favorite').show();
 
       $('.video-border').css('z-index', 200);
       $('.text-border').css('z-index', 200);
       $('.image-border').css('z-index', 200);
       $('.gif-border').css('z-index', 200);
+
+      // $('.video-border, .text-border').addClass('active-vertical');
+      // $('.image-border, .gif-border').addClass('active-horizontal');
+
+      $('.video-border, .text-border').velocity({
+        height: "40px"
+      }, {
+        duration: 600,
+        delay: 100,
+        easing: 'spring'
+      });
+
+      $('.image-border, .gif-border').velocity({
+        width: "40px"
+      }, {
+        duration: 600,
+        delay: 100,
+        easing: 'spring'
+      });
+
+      $('.video-border > p, .text-border > p, .image-border > p, .gif-border > p')
+        .velocity({
+          opacity: 1
+        }, {
+          duration: 200
+        });
 
       $searchterm = $('#search-field').val().toLowerCase();
 
@@ -366,7 +529,7 @@ var renderSingleText = function(data) {
 
   $container.empty();
 
-  $container.html('<div class="textbox"><p>' + post_summary + '<br>– @' + post_user + '</p></div>');
+  $container.html('<div class="textbox"><p>' + post_summary + '<br><span class="attr">– @' + post_user + '</span></p></div>');
 
   // clears all running timeouts
   clearTimers();
