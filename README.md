@@ -1,5 +1,36 @@
 # supermassive
 
+Supermassive is your internet black hole. A place to discover what randomness awaits you in gif, text , image and video form.
+
+###Technologies Used
+	-Node/ Express
+	-Tumblr API 
+	-Flikr API
+	-Giphy API
+	-Daily Motion API
+	-EJS - A templating front end module.
+	-Mongoose - MongoDB object modeling for Node.js.
+	-Morgan - Node to write log line as request instead of response.
+	-FS - Extension to original Node.js FS library.
+	-Passport _ Authentication middleware for Node.js.
+	-bcrypt-nodejs - Library to hash passwords.
+	-Method-override - Creates an override to req.method property with new value.
+	-cookie-parser - Parse cookie header and popular req.cookies.
+	-connect-flash - Connects special area for storing messages.
+
+### Approach 
+	-Started with brainstorming.
+	-Created wireframes.
+	-Built universal parts of backend.
+	-Searched for and tested APIs to see what were both attainable and true to the original vision of the project.
+	-Divided labor between focusing on database reading and writing, front end, implementing the API’s properly, creating favorites and trending features. 
+	-Pulled together different branches of work to create a working prototype.
+	-Integrated front end and polished design.
+	-Put site through QA to make sure it is feature rich and bug free.
+
+### Unresolved Problems
+	
+
 ### Project Features
 
 - Search, Trending, Random
@@ -69,30 +100,5 @@
 ![Profile](http://i.imgur.com/ABK4prY.png "Super Massive Profile")
 
 
-
-that’s cool though, sounds like you’re pretty close to cracking it. I’m probably calling it a day soon. @alexkoveos you think frontend will be good for friday? I have the raw UX basically implemented, so it just needs styling.
-
-​[3:53] 
-@alexkoveos: you can probably also work on a sweet loading animation for this screen: https://camo.githubusercontent.com/92fcd7270731bdd4de573d9faa48a1e3183ce825/687474703a2f2f692e696d6775722e636f6d2f58385777644c732e706e67 (52KB)
-
-
-​[3:54] 
-I was imagining the rings spinning in opposing directions (i.e. outer most ring clockwise, next ring counter-clockwise, etc.)
-
-​[3:54] 
-if you could do that in css/svg I should be able to just plug it in
-
-​[3:57] 
-@alexkoveos: Also, can you look into conditional partials? So for example, if the user is logged-in they should see the logged-in version of the header, if they’re a guest they see the guest version of the header. There’s probably an easy way to do it with EJS.
-https://slack-imgs.com/?url=https%3A%2F%2Fcamo.githubusercontent.com%2F92fcd7270731bdd4de573d9faa48a1e3183ce825%2F687474703a2f2f692e696d6775722e636f6d2f58385777644c732e706e67&width=1280&height=800
-
-  <img id="loading-animation" src="http://i.imgur.com/Pv4RGaR.jpg" alt="">
-
-
-trending white = http://i.imgur.com/JcGwxkN.png
-trending yellow = http://i.imgur.com/HgmHc2d.png
-
-profile white = http://i.imgur.com/HzPItVN.png
-profile yellow = http://i.imgur.com/F8ni0ac.png
 
 
