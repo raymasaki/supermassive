@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
     Search = require('../models/search.js'),
     Favorite = require('../models/favorite.js'),
+    User = require('../models/user.js'),
     bodyParser = require('body-parser'),
     express = require('express');
 
@@ -31,6 +32,29 @@ module.exports = function(app, passport) {
     Favorite.find({userId: req.user._id}).sort({ created: -1 }).exec(function(err, favorites) {
       if (err) return next(err);
       res.send(favorites);
+    });
+
+  });
+
+  app.get('/delete', function(req, res) {
+
+    return User.findById(req.user._id, function (err, user) {
+      return user.remove(function (err) {
+
+
+        if (!err) {
+          console.log("user removed");
+
+          req.session.destroy();
+          res.redirect('/login');
+
+        } else {
+          res.statusCode = 500;
+          console.log('Internal error(%d): %s',res.statusCode,err.message);
+          return res.send({ error: 'Server error' });
+        }
+
+      });
     });
 
   });
