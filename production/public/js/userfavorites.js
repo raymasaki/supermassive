@@ -24,10 +24,15 @@ var renderFavorites = function(data) {
 
   var favorites = data;
 
-  for (var i = 0; i < 20; i++) {
-      var $li = $('<li>');
-      $li.html('<a href=' + favorites[i].url + ' target="_blank">' + favorites[i].title + '</a><br><span class="' + favorites[i].type + '-type"> ' + favorites[i].type + '</span> <span class="timestamp">– ' + moment(favorites[i].created).fromNow() + '</span>');
-      $container.append($li);
+  if (favorites.length === 0) {
+    $container.html('<p style="text-align: center; padding: 60px 0;">You don\'t have any favorites</p>');
+  } else {
+    for (var i = 0; i < 20; i++) {
+        var $li = $('<li>');
+        $li.html('<a href=' + favorites[i].url + ' target="_blank">' + favorites[i].title + '</a><br><span class="' + favorites[i].type + '-type"> ' + favorites[i].type + '</span> <span class="timestamp">– ' + moment(favorites[i].created).fromNow() + '</span>');
+        $container.append($li);
+    }
   }
+
 
 };
